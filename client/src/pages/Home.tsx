@@ -299,17 +299,15 @@ export default function Home() {
                       ))}
                     </div>
                     <div className="flex flex-wrap gap-4">
-                      {featuredProject.projectUrl && (
-                        <a 
-                          href={featuredProject.projectUrl} 
-                          className="btn-primary flex items-center" 
-                          target="_blank" 
-                          rel="noopener noreferrer"
-                        >
-                          <span>View Live</span>
-                          <i className="ri-external-link-line ml-2"></i>
-                        </a>
-                      )}
+                      <a 
+                        href="https://ragebet.replit.app" 
+                        className="btn-primary flex items-center" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                      >
+                        <span>View Live</span>
+                        <i className="ri-external-link-line ml-2"></i>
+                      </a>
                       {featuredProject.githubUrl && (
                         <a 
                           href={featuredProject.githubUrl} 
@@ -338,7 +336,16 @@ export default function Home() {
                       className="w-full h-52 object-cover"
                     />
                     <div className="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {project.projectUrl && (
+                      {project.title === "Rage Bet" ? (
+                        <a 
+                          href="https://ragebet.replit.app" 
+                          className="bg-white text-accent px-5 py-2 rounded-lg font-medium transition transform hover:scale-105" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          View Project
+                        </a>
+                      ) : project.projectUrl && (
                         <a 
                           href={project.projectUrl} 
                           className="bg-white text-accent px-5 py-2 rounded-lg font-medium transition transform hover:scale-105" 
