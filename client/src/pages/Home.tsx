@@ -258,52 +258,67 @@ export default function Home() {
         </section>
         
         {/* Projects Section */}
-        <section id="projects" className="py-16 px-6 bg-primary-100">
+        <section id="projects" className="py-20 px-6 bg-gray-50">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">Projects</h2>
+            <div className="text-center mb-16">
+              <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
+                My Work
+              </span>
+              <h2 className="text-4xl font-bold text-gray-900">Recent Projects</h2>
+            </div>
             
             {/* Featured Project */}
             {featuredProject && (
-              <div className="bg-white rounded-xl overflow-hidden shadow-soft mb-12">
+              <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16 border border-gray-100">
                 <div className="md:flex">
-                  <div className="md:w-1/2">
+                  <div className="md:w-1/2 relative">
                     <img 
                       src={featuredProject.imageUrl || "https://images.unsplash.com/photo-1596865249308-2472dc5216e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500&q=80"} 
                       alt={featuredProject.title} 
                       className="w-full h-full object-cover"
                     />
+                    <div className="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                      Featured
+                    </div>
                   </div>
-                  <div className="p-8 md:w-1/2">
-                    <div className="flex items-center mb-4">
-                      <span className="bg-accent-100 text-accent-700 text-xs font-medium px-2.5 py-0.5 rounded-full">
-                        Featured Project
-                      </span>
-                      <span className="bg-green-100 text-green-700 text-xs font-medium px-2.5 py-0.5 rounded-full ml-2">
+                  <div className="p-8 md:p-10 md:w-1/2">
+                    <div className="flex items-center mb-5">
+                      <span className="bg-accent text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md">
                         Online Casino
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold mb-3">{featuredProject.title}</h3>
-                    <p className="text-primary-700 mb-4">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{featuredProject.title}</h3>
+                    <p className="text-gray-600 mb-6 text-lg">
                       {featuredProject.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-8">
                       {featuredProject.tags?.map((tag, index) => (
-                        <span key={index} className="bg-primary-100 text-primary-700 text-xs font-medium px-2.5 py-1 rounded">
+                        <span key={index} className="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    <div className="flex space-x-4">
+                    <div className="flex flex-wrap gap-4">
                       {featuredProject.projectUrl && (
-                        <a href={featuredProject.projectUrl} className="text-accent hover:text-accent/90 font-medium flex items-center" target="_blank" rel="noopener noreferrer">
+                        <a 
+                          href={featuredProject.projectUrl} 
+                          className="btn-primary flex items-center" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
                           <span>View Live</span>
-                          <i className="ri-external-link-line ml-1"></i>
+                          <i className="ri-external-link-line ml-2"></i>
                         </a>
                       )}
                       {featuredProject.githubUrl && (
-                        <a href={featuredProject.githubUrl} className="text-accent hover:text-accent/90 font-medium flex items-center" target="_blank" rel="noopener noreferrer">
+                        <a 
+                          href={featuredProject.githubUrl} 
+                          className="btn-secondary flex items-center" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
                           <span>Source Code</span>
-                          <i className="ri-github-line ml-1"></i>
+                          <i className="ri-github-line ml-2"></i>
                         </a>
                       )}
                     </div>
@@ -313,31 +328,40 @@ export default function Home() {
             )}
             
             {/* Project Gallery */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {projectsData?.filter(p => !p.featured).map((project) => (
-                <div key={project.id} className="bg-white rounded-xl overflow-hidden shadow-soft hover:shadow-hover transition-shadow">
-                  <img 
-                    src={project.imageUrl || `https://via.placeholder.com/400x200?text=${encodeURIComponent(project.title)}`} 
-                    alt={project.title} 
-                    className="w-full h-48 object-cover"
-                  />
+                <div key={project.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+                  <div className="relative">
+                    <img 
+                      src={project.imageUrl || `https://via.placeholder.com/400x200?text=${encodeURIComponent(project.title)}`} 
+                      alt={project.title} 
+                      className="w-full h-52 object-cover"
+                    />
+                    <div className="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {project.projectUrl && (
+                        <a 
+                          href={project.projectUrl} 
+                          className="bg-white text-accent px-5 py-2 rounded-lg font-medium transition transform hover:scale-105" 
+                          target="_blank" 
+                          rel="noopener noreferrer"
+                        >
+                          View Project
+                        </a>
+                      )}
+                    </div>
+                  </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                    <p className="text-primary-700 mb-4 text-sm">
+                    <h3 className="text-xl font-bold mb-3 text-gray-900">{project.title}</h3>
+                    <p className="text-gray-600 mb-4">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-4">
+                    <div className="flex flex-wrap gap-2">
                       {project.tags?.map((tag, index) => (
-                        <span key={index} className="bg-primary-100 text-primary-700 text-xs font-medium px-2 py-0.5 rounded">
+                        <span key={index} className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded">
                           {tag}
                         </span>
                       ))}
                     </div>
-                    {project.projectUrl && (
-                      <a href={project.projectUrl} className="text-accent hover:text-accent/90 text-sm font-medium" target="_blank" rel="noopener noreferrer">
-                        View Project →
-                      </a>
-                    )}
                   </div>
                 </div>
               ))}
@@ -349,63 +373,73 @@ export default function Home() {
         <AnalyticsCharts />
         
         {/* Contact Section */}
-        <section id="contact" className="py-16 px-6 bg-gradient-to-r from-[#303f9f] to-[#1a237e] text-white">
+        <section id="contact" className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
-            
+            <div className="text-center mb-16">
+              <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
+                Contact
+              </span>
+              <h2 className="text-4xl font-bold text-gray-900">Get In Touch</h2>
+              <p className="mt-4 text-gray-600 max-w-lg mx-auto">
+                Have a question or want to work together? Feel free to contact me!
+              </p>
+            </div>
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               <div className="md:col-span-1">
-                <div className="space-y-8">
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-                    <p className="text-gray-300 mb-6">
-                      Feel free to reach out to me through any of these channels.
-                    </p>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4">
-                      <i className="ri-mail-line text-accent"></i>
-                    </div>
+                <div className="bg-gray-50 rounded-xl p-8 shadow-md h-full">
+                  <div className="space-y-8">
                     <div>
-                      <h4 className="font-medium mb-1">Email</h4>
-                      <a href="mailto:aggelos.k@example.com" className="text-gray-300 hover:text-accent transition-colors">
-                        aggelos.k@example.com
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4">
-                      <i className="ri-map-pin-line text-accent"></i>
-                    </div>
-                    <div>
-                      <h4 className="font-medium mb-1">Location</h4>
-                      <p className="text-gray-300">
-                        {profileData?.location || "Athens, Greece"}
+                      <h3 className="text-xl font-bold mb-4 text-gray-900">Contact Information</h3>
+                      <p className="text-gray-600">
+                        Reach out through any of these channels and I'll respond as soon as possible.
                       </p>
                     </div>
-                  </div>
-                  
-                  <div className="flex items-start">
-                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4">
-                      <i className="ri-links-line text-accent"></i>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
+                        <i className="ri-mail-line text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 className="font-bold mb-1 text-gray-800">Email</h4>
+                        <a href="mailto:aggelos.k@example.com" className="text-gray-600 hover:text-accent transition-colors">
+                          aggelos.k@example.com
+                        </a>
+                      </div>
                     </div>
-                    <div>
-                      <h4 className="font-medium mb-1">Social Media</h4>
-                      <div className="flex space-x-4 mt-2">
-                        <a href="https://github.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                          <i className="ri-github-fill text-2xl"></i>
-                        </a>
-                        <a href="https://linkedin.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                          <i className="ri-linkedin-fill text-2xl"></i>
-                        </a>
-                        <a href="https://twitter.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                          <i className="ri-twitter-fill text-2xl"></i>
-                        </a>
-                        <a href="https://instagram.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
-                          <i className="ri-instagram-fill text-2xl"></i>
-                        </a>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
+                        <i className="ri-map-pin-line text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 className="font-bold mb-1 text-gray-800">Location</h4>
+                        <p className="text-gray-600">
+                          {profileData?.location || "Athens, Greece"}
+                        </p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start">
+                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
+                        <i className="ri-links-line text-xl"></i>
+                      </div>
+                      <div>
+                        <h4 className="font-bold mb-2 text-gray-800">Social Media</h4>
+                        <div className="flex space-x-4">
+                          <a href="https://github.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i className="ri-github-fill text-xl"></i>
+                          </a>
+                          <a href="https://linkedin.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i className="ri-linkedin-fill text-xl"></i>
+                          </a>
+                          <a href="https://twitter.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i className="ri-twitter-fill text-xl"></i>
+                          </a>
+                          <a href="https://instagram.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                            <i className="ri-instagram-fill text-xl"></i>
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -413,95 +447,98 @@ export default function Home() {
               </div>
               
               <div className="md:col-span-2">
-                <Form {...form} onSubmit={form.handleSubmit(onSubmit)}>
-                  <div className="space-y-6">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
+                  <h3 className="text-xl font-bold mb-6 text-gray-900">Send Me a Message</h3>
+                  <Form {...form} onSubmit={form.handleSubmit(onSubmit)}>
+                    <div className="space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <FormField
+                          control={form.control}
+                          name="name"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sm font-medium text-gray-700">Name</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  {...field} 
+                                  placeholder="Your name" 
+                                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-gray-800"
+                                />
+                              </FormControl>
+                              <FormMessage className="text-red-500" />
+                            </FormItem>
+                          )}
+                        />
+                        <FormField
+                          control={form.control}
+                          name="email"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sm font-medium text-gray-700">Email</FormLabel>
+                              <FormControl>
+                                <Input 
+                                  {...field} 
+                                  placeholder="Your email" 
+                                  className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-gray-800"
+                                />
+                              </FormControl>
+                              <FormMessage className="text-red-500" />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
                       <FormField
                         control={form.control}
-                        name="name"
+                        name="subject"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-medium text-white">Name</FormLabel>
+                            <FormLabel className="text-sm font-medium text-gray-700">Subject</FormLabel>
                             <FormControl>
                               <Input 
                                 {...field} 
-                                placeholder="Your name" 
-                                className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-white"
+                                placeholder="Subject" 
+                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-gray-800"
                               />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
                       <FormField
                         control={form.control}
-                        name="email"
+                        name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-sm font-medium text-white">Email</FormLabel>
+                            <FormLabel className="text-sm font-medium text-gray-700">Message</FormLabel>
                             <FormControl>
-                              <Input 
+                              <Textarea 
                                 {...field} 
-                                placeholder="Your email" 
-                                className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-white"
+                                placeholder="Your message" 
+                                rows={5}
+                                className="w-full px-4 py-3 bg-white border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-gray-800"
                               />
                             </FormControl>
-                            <FormMessage />
+                            <FormMessage className="text-red-500" />
                           </FormItem>
                         )}
                       />
+                      <Button 
+                        type="submit" 
+                        className="btn-primary w-full"
+                        disabled={form.formState.isSubmitting}
+                      >
+                        {form.formState.isSubmitting ? (
+                          <span className="flex items-center justify-center">
+                            <i className="ri-loader-4-line animate-spin mr-2"></i>
+                            Sending...
+                          </span>
+                        ) : (
+                          "Send Message"
+                        )}
+                      </Button>
                     </div>
-                    <FormField
-                      control={form.control}
-                      name="subject"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">Subject</FormLabel>
-                          <FormControl>
-                            <Input 
-                              {...field} 
-                              placeholder="Subject" 
-                              className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-white"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="message"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel className="text-sm font-medium text-white">Message</FormLabel>
-                          <FormControl>
-                            <Textarea 
-                              {...field} 
-                              placeholder="Your message" 
-                              rows={5}
-                              className="w-full px-4 py-3 bg-primary-800 border border-primary-700 rounded-lg focus:ring-2 focus:ring-accent focus:border-accent outline-none transition-colors text-white"
-                            />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-accent hover:bg-accent/90 text-white font-medium py-3 px-6 rounded-lg transition-colors"
-                      disabled={form.formState.isSubmitting}
-                    >
-                      {form.formState.isSubmitting ? (
-                        <span className="flex items-center">
-                          <i className="ri-loader-4-line animate-spin mr-2"></i>
-                          Sending...
-                        </span>
-                      ) : (
-                        "Send Message"
-                      )}
-                    </Button>
-                  </div>
-                </Form>
+                  </Form>
+                </div>
               </div>
             </div>
           </div>
@@ -510,8 +547,41 @@ export default function Home() {
       
       <MobileNavigation />
       
-      <footer className="bg-primary-900 text-primary-400 py-8 px-6 text-center text-sm">
-        <p>© {new Date().getFullYear()} {profileData?.name || "Aggelos Kwnstantinou"}. All rights reserved.</p>
+      <footer className="bg-gray-900 text-gray-400 py-12 px-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+            <div className="mb-6 md:mb-0">
+              <h3 className="text-xl font-bold text-white mb-2">Aggelos <span className="text-accent">Kwnstantinou</span></h3>
+              <p className="text-gray-400 max-w-md">Young full-stack developer building impactful web experiences with modern technologies.</p>
+            </div>
+            
+            <div className="flex space-x-4">
+              <a href="https://github.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                <i className="ri-github-fill text-xl"></i>
+              </a>
+              <a href="https://linkedin.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                <i className="ri-linkedin-fill text-xl"></i>
+              </a>
+              <a href="https://twitter.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                <i className="ri-twitter-fill text-xl"></i>
+              </a>
+              <a href="https://instagram.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                <i className="ri-instagram-fill text-xl"></i>
+              </a>
+            </div>
+          </div>
+          
+          <div className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <p className="text-sm text-gray-500 mb-4 md:mb-0">© {new Date().getFullYear()} {profileData?.name || "Aggelos Kwnstantinou"}. All rights reserved.</p>
+            
+            <div className="flex space-x-8">
+              <a href="#about" className="text-sm text-gray-400 hover:text-accent transition-colors">About</a>
+              <a href="#projects" className="text-sm text-gray-400 hover:text-accent transition-colors">Projects</a>
+              <a href="#analytics" className="text-sm text-gray-400 hover:text-accent transition-colors">Analytics</a>
+              <a href="#contact" className="text-sm text-gray-400 hover:text-accent transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
       </footer>
     </div>
   );

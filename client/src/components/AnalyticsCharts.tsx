@@ -43,24 +43,24 @@ interface StatCardProps {
 
 function StatCard({ title, value, change, changeType, icon }: StatCardProps) {
   return (
-    <div className="bg-white rounded-xl p-6 shadow-soft stat-card border border-primary-100 hover:shadow-hover transition-all">
-      <div className="flex items-center mb-2">
-        <div className="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-3">
+    <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300 border border-gray-100">
+      <div className="flex items-center mb-3">
+        <div className="w-12 h-12 bg-accent-100 rounded-lg flex items-center justify-center mr-4 text-accent">
           {icon}
         </div>
-        <h3 className="text-lg font-semibold">{title}</h3>
+        <h3 className="text-lg font-bold text-gray-900">{title}</h3>
       </div>
-      <p className="text-3xl font-bold text-primary-900 mb-1">{value}</p>
-      <p className="text-sm text-primary-500 flex items-center">
+      <p className="text-3xl font-extrabold text-gray-900 mb-2">{value}</p>
+      <p className="text-sm flex items-center">
         {changeType === 'positive' ? (
-          <i className="ri-arrow-up-line text-green-500 mr-1"></i>
+          <i className="ri-arrow-up-line text-green-600 mr-1"></i>
         ) : (
-          <i className="ri-arrow-down-line text-red-500 mr-1"></i>
+          <i className="ri-arrow-down-line text-red-600 mr-1"></i>
         )}
-        <span className={changeType === 'positive' ? 'text-green-500 font-medium' : 'text-red-500 font-medium'}>
+        <span className={changeType === 'positive' ? 'text-green-600 font-medium' : 'text-red-600 font-medium'}>
           {change}
         </span>
-        <span className="ml-1">vs last month</span>
+        <span className="ml-1 text-gray-600">vs last month</span>
       </p>
     </div>
   );
@@ -143,18 +143,26 @@ export function AnalyticsCharts() {
   };
 
   return (
-    <section id="analytics" className="py-16 px-6 bg-white">
+    <section id="analytics" className="py-20 px-6 bg-gray-50">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl font-bold mb-12 text-center">Portfolio Analytics</h2>
+        <div className="text-center mb-16">
+          <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
+            Analytics
+          </span>
+          <h2 className="text-4xl font-bold text-gray-900">Portfolio Insights</h2>
+          <p className="mt-4 text-gray-600 max-w-lg mx-auto">
+            Track performance metrics and visitor engagement for my portfolio website
+          </p>
+        </div>
         
         {/* Stats Overview */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           <StatCard 
             title="Total Views" 
             value={analyticsData?.totalVisits || 0} 
             change="12%" 
             changeType="positive" 
-            icon={<i className="ri-eye-line text-accent"></i>} 
+            icon={<i className="ri-eye-line text-xl"></i>} 
           />
           
           <StatCard 
@@ -162,7 +170,7 @@ export function AnalyticsCharts() {
             value={analyticsData?.uniqueVisitors || 0} 
             change="8%" 
             changeType="positive" 
-            icon={<i className="ri-user-line text-blue-500"></i>} 
+            icon={<i className="ri-user-line text-xl"></i>} 
           />
           
           <StatCard 
@@ -170,7 +178,7 @@ export function AnalyticsCharts() {
             value={analyticsData?.avgTimeOnPage || "0:00"} 
             change="3%" 
             changeType="negative" 
-            icon={<i className="ri-time-line text-green-500"></i>} 
+            icon={<i className="ri-time-line text-xl"></i>} 
           />
           
           <StatCard 
@@ -178,15 +186,15 @@ export function AnalyticsCharts() {
             value={analyticsData?.conversionRate || "0%"} 
             change="2%" 
             changeType="positive" 
-            icon={<i className="ri-git-branch-line text-amber-500"></i>} 
+            icon={<i className="ri-git-branch-line text-xl"></i>} 
           />
         </div>
         
         {/* Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-lg font-semibold">Visitors Over Time</CardTitle>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <Card className="border border-gray-100 shadow-md">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 border-b">
+              <CardTitle className="text-lg font-bold text-gray-900">Visitors Over Time</CardTitle>
               <Tabs defaultValue="month" value={timeRange} onValueChange={setTimeRange}>
                 <TabsList className="grid grid-cols-3 h-8">
                   <TabsTrigger value="week" className="text-xs">Week</TabsTrigger>
@@ -195,22 +203,22 @@ export function AnalyticsCharts() {
                 </TabsList>
               </Tabs>
             </CardHeader>
-            <CardContent>
-              <div className="h-[240px]">
+            <CardContent className="pt-6">
+              <div className="h-[250px]">
                 <Line options={lineChartOptions} data={visitorsChartData} />
               </div>
             </CardContent>
           </Card>
           
-          <Card>
-            <CardHeader className="flex flex-row items-center justify-between pb-2">
-              <CardTitle className="text-lg font-semibold">Visitors by Location</CardTitle>
-              <button className="text-sm text-accent hover:text-accent/90">
-                See detailed report
+          <Card className="border border-gray-100 shadow-md">
+            <CardHeader className="flex flex-row items-center justify-between pb-2 border-b">
+              <CardTitle className="text-lg font-bold text-gray-900">Visitors by Location</CardTitle>
+              <button className="text-sm text-accent hover:text-accent/90 font-medium">
+                See details
               </button>
             </CardHeader>
-            <CardContent>
-              <div className="h-[240px]">
+            <CardContent className="pt-6">
+              <div className="h-[250px]">
                 <Doughnut options={doughnutChartOptions} data={locationChartData} />
               </div>
             </CardContent>
@@ -218,17 +226,18 @@ export function AnalyticsCharts() {
         </div>
         
         {/* Referrers Table */}
-        <div className="mt-12 bg-white rounded-xl p-6 shadow-soft border border-primary-100">
+        <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
           <div className="flex justify-between items-center mb-6">
-            <h3 className="text-lg font-semibold">Top Referrers</h3>
-            <button className="text-sm text-accent hover:text-accent/90">
-              View all sources
+            <h3 className="text-xl font-bold text-gray-900">Top Referrers</h3>
+            <button className="text-sm text-accent hover:text-accent/90 font-medium flex items-center">
+              <span>View all sources</span>
+              <i className="ri-arrow-right-line ml-1"></i>
             </button>
           </div>
           
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
-              <thead className="text-xs text-primary-700 uppercase bg-primary-50">
+              <thead className="text-xs font-medium text-gray-600 uppercase bg-gray-50">
                 <tr>
                   <th scope="col" className="px-6 py-3 rounded-l-lg">Source</th>
                   <th scope="col" className="px-6 py-3">Visitors</th>
@@ -238,27 +247,39 @@ export function AnalyticsCharts() {
               </thead>
               <tbody>
                 {analyticsData?.topReferrers?.map((referrer: any, index: number) => (
-                  <tr key={index} className="bg-white border-b border-primary-100">
-                    <td className="px-6 py-4 font-medium">
+                  <tr key={index} className="bg-white border-b">
+                    <td className="px-6 py-4 font-medium text-gray-800">
                       <div className="flex items-center">
-                        <i className={`ri-${referrer.source.toLowerCase()}-line text-xl mr-3 text-primary-400`}></i>
+                        <div className="w-8 h-8 bg-accent-100 text-accent rounded-lg flex items-center justify-center mr-3">
+                          <i className={`ri-${referrer.source.toLowerCase()}-line`}></i>
+                        </div>
                         <span>{referrer.source}</span>
                       </div>
                     </td>
-                    <td className="px-6 py-4">{referrer.count}</td>
+                    <td className="px-6 py-4 font-medium">{referrer.count}</td>
                     <td className="px-6 py-4">
                       <div className="flex items-center">
-                        <div className="w-16 bg-primary-200 rounded-full h-2 mr-2">
+                        <div className="w-24 bg-gray-200 rounded-full h-2 mr-2">
                           <div 
                             className="bg-accent h-2 rounded-full" 
                             style={{ width: `${referrer.percentage * 10}%` }}
                           ></div>
                         </div>
-                        <span>{referrer.percentage}%</span>
+                        <span className="font-medium">{referrer.percentage}%</span>
                       </div>
                     </td>
-                    <td className={`px-6 py-4 ${index % 3 === 0 ? "text-red-500" : "text-green-500"}`}>
-                      {index % 3 === 0 ? "-3%" : `+${(index + 1) * 7}%`}
+                    <td className={`px-6 py-4 font-medium ${index % 3 === 0 ? "text-red-500" : "text-green-500"}`}>
+                      {index % 3 === 0 ? (
+                        <span className="flex items-center">
+                          <i className="ri-arrow-down-line mr-1"></i>
+                          3%
+                        </span>
+                      ) : (
+                        <span className="flex items-center">
+                          <i className="ri-arrow-up-line mr-1"></i>
+                          {(index + 1) * 7}%
+                        </span>
+                      )}
                     </td>
                   </tr>
                 ))}
