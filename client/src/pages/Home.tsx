@@ -306,7 +306,7 @@ export default function Home() {
                         return (
                           <span key={index} className={`${color} text-sm font-medium px-4 py-2 rounded-full border flex items-center`}>
                             {tag === "React" && <i className="ri-reactjs-line mr-1.5"></i>}
-                            {tag === "Tailwind CSS" && <i className="ri-wind-line mr-1.5"></i>}
+                            {tag.includes("Tailwind") && <i className="ri-wind-line mr-1.5"></i>}
                             {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1.5"></i>}
                             {tag === "Stripe" && <i className="ri-secure-payment-line mr-1.5"></i>}
                             {tag}
@@ -398,8 +398,7 @@ export default function Home() {
                         return (
                           <span key={index} className={`${color} text-xs font-medium px-2.5 py-1.5 rounded-full border flex items-center`}>
                             {tag === "React" && <i className="ri-reactjs-line mr-1"></i>}
-                            {tag === "Tailwind" && <i className="ri-wind-line mr-1"></i>}
-                            {tag === "Tailwind CSS" && <i className="ri-wind-line mr-1"></i>}
+                            {tag.includes("Tailwind") && <i className="ri-wind-line mr-1"></i>}
                             {tag === "Firebase" && <i className="ri-fire-line mr-1"></i>}
                             {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1"></i>}
                             {tag === "Stripe" && <i className="ri-secure-payment-line mr-1"></i>}
