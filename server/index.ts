@@ -14,6 +14,9 @@ app.use(express.urlencoded({ extended: false }));
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, '..', 'dist', 'public', 'uploads')));
 
+// Serve files directly from public folder
+app.use(express.static(path.join(__dirname, '..', 'public')));
+
 app.use((req, res, next) => {
   const start = Date.now();
   const path = req.path;
