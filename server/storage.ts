@@ -96,7 +96,7 @@ export class MemStorage implements IStorage {
     const rageBetProject: Project = {
       id: this.currentProjectId++,
       title: "Rage Bet",
-      description: "An online casino platform offering various games including slots, poker, blackjack, and live dealer games. The project features user authentication, virtual currency management, and real-time gaming experiences.",
+      description: "An online casino platform offering various games including slots, plinko, blackjack, and crash. The project features user authentication, virtual currency management, and real-time gaming experiences.",
       imageUrl: "/ragebet.png",
       projectUrl: "https://ragebet.replit.app",
       githubUrl: "https://github.com/aggelos/ragebet",
