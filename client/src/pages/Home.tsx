@@ -152,11 +152,8 @@ export default function Home() {
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
                   <i className="fas fa-user text-2xl"></i>
                 </div>
-                <div className="flex items-center justify-between mb-4">
+                <div className="mb-4">
                   <h3 className="text-xl font-bold text-gray-900">Personal Info</h3>
-                  <span className="bg-accent text-white text-sm font-bold px-3 py-1 rounded-full shadow-md">
-                    17 y/o
-                  </span>
                 </div>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center">
