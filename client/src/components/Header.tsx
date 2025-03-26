@@ -33,10 +33,10 @@ export function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden sm:block">
           <ul className="flex space-x-6 text-sm font-medium">
-            <li><a href="#about" className="hover:text-accent transition-colors">About</a></li>
-            <li><a href="#projects" className="hover:text-accent transition-colors">Projects</a></li>
-            <li><a href="#analytics" className="hover:text-accent transition-colors">Analytics</a></li>
-            <li><a href="#contact" className="hover:text-accent transition-colors">Contact</a></li>
+            <li><a href="#about" className="text-gray-700 hover:text-accent transition-colors">About</a></li>
+            <li><a href="#projects" className="text-gray-700 hover:text-accent transition-colors">Projects</a></li>
+            <li><a href="#analytics" className="text-gray-700 hover:text-accent transition-colors">Analytics</a></li>
+            <li><a href="#contact" className="text-gray-700 hover:text-accent transition-colors">Contact</a></li>
           </ul>
         </nav>
         

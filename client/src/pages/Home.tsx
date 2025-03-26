@@ -111,18 +111,18 @@ export default function Home() {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-primary-800 to-primary-900 text-white py-16 px-6">
+        <section className="bg-gradient-to-r from-[#303f9f] to-[#1a237e] text-white py-16 px-6">
           <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
             <div className="md:w-2/3 animate-[slideUp_0.5s_ease-out]">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">Hi, I'm {profileData?.name || "Aggelos Kwnstantinou"}</h1>
-              <p className="text-lg text-primary-200 mb-8">
+              <p className="text-lg text-gray-200 mb-8">
                 Young developer passionate about creating impactful digital experiences.
               </p>
               <div className="flex space-x-4">
                 <a href="#projects" className="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-md font-medium transition-colors">
                   View My Work
                 </a>
-                <a href="#contact" className="bg-transparent border border-white hover:bg-white hover:text-primary-900 text-white px-6 py-3 rounded-md font-medium transition-colors">
+                <a href="#contact" className="bg-transparent border border-white hover:bg-white hover:text-[#1a237e] text-white px-6 py-3 rounded-md font-medium transition-colors">
                   Get In Touch
                 </a>
               </div>
@@ -332,7 +332,7 @@ export default function Home() {
         <AnalyticsCharts />
         
         {/* Contact Section */}
-        <section id="contact" className="py-16 px-6 bg-primary-900 text-white">
+        <section id="contact" className="py-16 px-6 bg-gradient-to-r from-[#303f9f] to-[#1a237e] text-white">
           <div className="max-w-5xl mx-auto">
             <h2 className="text-3xl font-bold mb-12 text-center">Get In Touch</h2>
             
@@ -341,52 +341,52 @@ export default function Home() {
                 <div className="space-y-8">
                   <div>
                     <h3 className="text-xl font-semibold mb-4">Contact Information</h3>
-                    <p className="text-primary-300 mb-6">
+                    <p className="text-gray-300 mb-6">
                       Feel free to reach out to me through any of these channels.
                     </p>
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4">
                       <i className="ri-mail-line text-accent"></i>
                     </div>
                     <div>
                       <h4 className="font-medium mb-1">Email</h4>
-                      <a href="mailto:aggelos.k@example.com" className="text-primary-300 hover:text-accent transition-colors">
+                      <a href="mailto:aggelos.k@example.com" className="text-gray-300 hover:text-accent transition-colors">
                         aggelos.k@example.com
                       </a>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4">
                       <i className="ri-map-pin-line text-accent"></i>
                     </div>
                     <div>
                       <h4 className="font-medium mb-1">Location</h4>
-                      <p className="text-primary-300">
+                      <p className="text-gray-300">
                         {profileData?.location || "Athens, Greece"}
                       </p>
                     </div>
                   </div>
                   
                   <div className="flex items-start">
-                    <div className="w-10 h-10 bg-primary-800 rounded-full flex items-center justify-center mr-4">
+                    <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center mr-4">
                       <i className="ri-links-line text-accent"></i>
                     </div>
                     <div>
                       <h4 className="font-medium mb-1">Social Media</h4>
                       <div className="flex space-x-4 mt-2">
-                        <a href="https://github.com" className="text-primary-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
                           <i className="ri-github-fill text-2xl"></i>
                         </a>
-                        <a href="https://linkedin.com" className="text-primary-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                        <a href="https://linkedin.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
                           <i className="ri-linkedin-fill text-2xl"></i>
                         </a>
-                        <a href="https://twitter.com" className="text-primary-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                        <a href="https://twitter.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
                           <i className="ri-twitter-fill text-2xl"></i>
                         </a>
-                        <a href="https://instagram.com" className="text-primary-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
+                        <a href="https://instagram.com" className="text-gray-300 hover:text-accent transition-colors" target="_blank" rel="noopener noreferrer">
                           <i className="ri-instagram-fill text-2xl"></i>
                         </a>
                       </div>
