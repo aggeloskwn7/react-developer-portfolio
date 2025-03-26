@@ -264,8 +264,8 @@ export default function Home() {
                 <div className="md:flex">
                   <div className="md:w-1/2 relative">
                     <img 
-                      src={featuredProject.imageUrl || "https://images.unsplash.com/photo-1596865249308-2472dc5216e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500&q=80"} 
-                      alt={featuredProject.title} 
+                      src={featuredProject.imageUrl || "/ragebet.png"} 
+                      alt={featuredProject.title || "Rage Bet"} 
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-medium">

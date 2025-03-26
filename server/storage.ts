@@ -97,8 +97,8 @@ export class MemStorage implements IStorage {
       id: this.currentProjectId++,
       title: "Rage Bet",
       description: "An online casino platform offering various games including slots, poker, blackjack, and live dealer games. The project features user authentication, virtual currency management, and real-time gaming experiences.",
-      imageUrl: "https://images.unsplash.com/photo-1596865249308-2472dc5216e3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&h=500&q=80",
-      projectUrl: "https://ragebet.example.com",
+      imageUrl: "/ragebet.png",
+      projectUrl: "https://ragebet.replit.app",
       githubUrl: "https://github.com/aggelos/ragebet",
       featured: true,
       tags: ["React", "Tailwind CSS", "PostgreSQL", "Stripe"]
