@@ -291,12 +291,28 @@ export default function Home() {
                     <p className="text-gray-600 mb-6 text-lg">
                       {featuredProject.description}
                     </p>
-                    <div className="flex flex-wrap gap-2 mb-8">
-                      {featuredProject.tags?.map((tag, index) => (
-                        <span key={index} className="bg-gray-100 text-gray-700 text-xs font-medium px-3 py-1.5 rounded-md">
-                          {tag}
-                        </span>
-                      ))}
+                    <div className="flex flex-wrap gap-3 mb-8">
+                      {featuredProject.tags?.map((tag, index) => {
+                        // Custom colors for each technology
+                        const colors = {
+                          "React": "bg-blue-50 text-blue-700 border-blue-200",
+                          "Tailwind CSS": "bg-teal-50 text-teal-700 border-teal-200",
+                          "PostgreSQL": "bg-indigo-50 text-indigo-700 border-indigo-200",
+                          "Stripe": "bg-purple-50 text-purple-700 border-purple-200"
+                        };
+                        
+                        const color = colors[tag as keyof typeof colors] || "bg-gray-100 text-gray-700 border-gray-200";
+                        
+                        return (
+                          <span key={index} className={`${color} text-sm font-medium px-4 py-2 rounded-full border flex items-center`}>
+                            {tag === "React" && <i className="ri-reactjs-line mr-1.5"></i>}
+                            {tag === "Tailwind CSS" && <i className="ri-wind-line mr-1.5"></i>}
+                            {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1.5"></i>}
+                            {tag === "Stripe" && <i className="ri-secure-payment-line mr-1.5"></i>}
+                            {tag}
+                          </span>
+                        );
+                      })}
                     </div>
                     <div className="flex flex-wrap gap-4">
                       <a 
@@ -363,11 +379,37 @@ export default function Home() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {project.tags?.map((tag, index) => (
-                        <span key={index} className="bg-gray-100 text-gray-600 text-xs font-medium px-2.5 py-1 rounded">
-                          {tag}
-                        </span>
-                      ))}
+                      {project.tags?.map((tag, index) => {
+                        // Custom colors for each technology
+                        const colors = {
+                          "React": "bg-blue-50 text-blue-700 border-blue-200",
+                          "Tailwind CSS": "bg-teal-50 text-teal-700 border-teal-200",
+                          "PostgreSQL": "bg-indigo-50 text-indigo-700 border-indigo-200",
+                          "Stripe": "bg-purple-50 text-purple-700 border-purple-200",
+                          "Firebase": "bg-amber-50 text-amber-700 border-amber-200",
+                          "Tailwind": "bg-teal-50 text-teal-700 border-teal-200",
+                          "JavaScript": "bg-yellow-50 text-yellow-700 border-yellow-200",
+                          "API": "bg-green-50 text-green-700 border-green-200",
+                          "CSS": "bg-pink-50 text-pink-700 border-pink-200"
+                        };
+                        
+                        const color = colors[tag as keyof typeof colors] || "bg-gray-100 text-gray-700 border-gray-200";
+                        
+                        return (
+                          <span key={index} className={`${color} text-xs font-medium px-2.5 py-1.5 rounded-full border flex items-center`}>
+                            {tag === "React" && <i className="ri-reactjs-line mr-1"></i>}
+                            {tag === "Tailwind" && <i className="ri-wind-line mr-1"></i>}
+                            {tag === "Tailwind CSS" && <i className="ri-wind-line mr-1"></i>}
+                            {tag === "Firebase" && <i className="ri-fire-line mr-1"></i>}
+                            {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1"></i>}
+                            {tag === "Stripe" && <i className="ri-secure-payment-line mr-1"></i>}
+                            {tag === "JavaScript" && <i className="ri-javascript-line mr-1"></i>}
+                            {tag === "API" && <i className="ri-cloud-line mr-1"></i>}
+                            {tag === "CSS" && <i className="ri-layout-line mr-1"></i>}
+                            {tag}
+                          </span>
+                        );
+                      })}
                     </div>
                   </div>
                 </div>

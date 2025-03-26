@@ -101,7 +101,7 @@ export class MemStorage implements IStorage {
       projectUrl: "https://ragebet.example.com",
       githubUrl: "https://github.com/aggelos/ragebet",
       featured: true,
-      tags: ["React", "Node.js", "MongoDB", "Socket.IO", "Stripe"]
+      tags: ["React", "Tailwind CSS", "PostgreSQL", "Stripe"]
     };
     this.projects.set(rageBetProject.id, rageBetProject);
 
