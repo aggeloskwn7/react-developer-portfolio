@@ -111,8 +111,8 @@ export class MemStorage implements IStorage {
       title: "Weather App",
       description: "A responsive weather application that displays current weather conditions and forecasts.",
       imageUrl: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=400&h=200&q=80",
-      projectUrl: "https://weather.example.com",
-      githubUrl: "https://github.com/aggelos/weather",
+      projectUrl: "https://weather-aggeloskwn.replit.app",
+      githubUrl: "https://github.com/aggeloskwn7/Weather-App",
       featured: false,
       tags: ["JavaScript", "API", "CSS"]
     };

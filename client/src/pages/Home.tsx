@@ -349,24 +349,26 @@ export default function Home() {
                       alt={project.title} 
                       className="w-full h-52 object-cover"
                     />
-                    <div className="absolute inset-0 bg-accent/80 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      {project.title === "Rage Bet" ? (
+                    <div className="absolute inset-0 bg-accent/80 flex flex-col items-center justify-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      {project.projectUrl && (
                         <a 
-                          href="https://ragebet.replit.app" 
+                          href={project.projectUrl}
                           className="bg-white text-accent px-5 py-2 rounded-lg font-medium transition transform hover:scale-105" 
                           target="_blank" 
                           rel="noopener noreferrer"
                         >
                           View Project
                         </a>
-                      ) : project.projectUrl && (
+                      )}
+                      {project.githubUrl && (
                         <a 
-                          href={project.projectUrl} 
-                          className="bg-white text-accent px-5 py-2 rounded-lg font-medium transition transform hover:scale-105" 
+                          href={project.githubUrl}
+                          className="bg-gray-900 text-white px-5 py-2 rounded-lg font-medium transition transform hover:scale-105 flex items-center" 
                           target="_blank" 
                           rel="noopener noreferrer"
                         >
-                          View Project
+                          <i className="fab fa-github mr-2"></i>
+                          Source Code
                         </a>
                       )}
                     </div>
