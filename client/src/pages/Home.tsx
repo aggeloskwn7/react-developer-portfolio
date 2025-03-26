@@ -312,10 +312,10 @@ export default function Home() {
                         
                         return (
                           <span key={index} className={`${color} text-sm font-medium px-4 py-2 rounded-full border flex items-center`}>
-                            {tag === "React" && <i className="ri-reactjs-line mr-1.5"></i>}
-                            {isTailwindTag && <i className="ri-wind-line mr-1.5"></i>}
-                            {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1.5"></i>}
-                            {tag === "Stripe" && <i className="ri-secure-payment-line mr-1.5"></i>}
+                            {tag === "React" && <i className="fab fa-react mr-1.5"></i>}
+                            {isTailwindTag && <i className="fab fa-css3 mr-1.5"></i>}
+                            {tag === "PostgreSQL" && <i className="fas fa-database mr-1.5"></i>}
+                            {tag === "Stripe" && <i className="fas fa-credit-card mr-1.5"></i>}
                             {tag}
                           </span>
                         );
@@ -410,14 +410,14 @@ export default function Home() {
                         
                         return (
                           <span key={index} className={`${color} text-xs font-medium px-2.5 py-1.5 rounded-full border flex items-center`}>
-                            {tag === "React" && <i className="ri-reactjs-line mr-1"></i>}
-                            {isTailwindTag && <i className="ri-wind-line mr-1"></i>}
-                            {tag === "Firebase" && <i className="ri-fire-line mr-1"></i>}
-                            {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1"></i>}
-                            {tag === "Stripe" && <i className="ri-secure-payment-line mr-1"></i>}
-                            {tag === "JavaScript" && <i className="ri-javascript-line mr-1"></i>}
-                            {tag === "API" && <i className="ri-cloud-line mr-1"></i>}
-                            {tag === "CSS" && <i className="ri-layout-line mr-1"></i>}
+                            {tag === "React" && <i className="fab fa-react mr-1"></i>}
+                            {isTailwindTag && <i className="fab fa-css3 mr-1"></i>}
+                            {tag === "Firebase" && <i className="fas fa-fire mr-1"></i>}
+                            {tag === "PostgreSQL" && <i className="fas fa-database mr-1"></i>}
+                            {tag === "Stripe" && <i className="fas fa-credit-card mr-1"></i>}
+                            {tag === "JavaScript" && <i className="fab fa-js mr-1"></i>}
+                            {tag === "API" && <i className="fas fa-cloud mr-1"></i>}
+                            {tag === "CSS" && <i className="fab fa-css3-alt mr-1"></i>}
                             {tag}
                           </span>
                         );
@@ -459,7 +459,7 @@ export default function Home() {
                     
                     <div className="flex items-start">
                       <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
-                        <i className="ri-mail-line text-xl"></i>
+                        <i className="fas fa-envelope text-xl"></i>
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 text-gray-800">Email</h4>
@@ -471,7 +471,7 @@ export default function Home() {
                     
                     <div className="flex items-start">
                       <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
-                        <i className="ri-map-pin-line text-xl"></i>
+                        <i className="fas fa-map-marker-alt text-xl"></i>
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 text-gray-800">Location</h4>
@@ -483,22 +483,22 @@ export default function Home() {
                     
                     <div className="flex items-start">
                       <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
-                        <i className="ri-links-line text-xl"></i>
+                        <i className="fas fa-share-alt text-xl"></i>
                       </div>
                       <div>
                         <h4 className="font-bold mb-2 text-gray-800">Social Media</h4>
                         <div className="flex space-x-4">
                           <a href="https://github.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                            <i className="ri-github-fill text-xl"></i>
+                            <i className="fab fa-github text-xl"></i>
                           </a>
                           <a href="https://linkedin.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                            <i className="ri-linkedin-fill text-xl"></i>
+                            <i className="fab fa-linkedin-in text-xl"></i>
                           </a>
                           <a href="https://twitter.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                            <i className="ri-twitter-fill text-xl"></i>
+                            <i className="fab fa-twitter text-xl"></i>
                           </a>
                           <a href="https://instagram.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                            <i className="ri-instagram-fill text-xl"></i>
+                            <i className="fab fa-instagram text-xl"></i>
                           </a>
                         </div>
                       </div>
@@ -618,16 +618,16 @@ export default function Home() {
             
             <div className="flex space-x-4">
               <a href="https://github.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                <i className="ri-github-fill text-xl"></i>
+                <i className="fab fa-github text-xl"></i>
               </a>
               <a href="https://linkedin.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                <i className="ri-linkedin-fill text-xl"></i>
+                <i className="fab fa-linkedin-in text-xl"></i>
               </a>
               <a href="https://twitter.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                <i className="ri-twitter-fill text-xl"></i>
+                <i className="fab fa-twitter text-xl"></i>
               </a>
               <a href="https://instagram.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
-                <i className="ri-instagram-fill text-xl"></i>
+                <i className="fab fa-instagram text-xl"></i>
               </a>
             </div>
           </div>
