@@ -298,15 +298,22 @@ export default function Home() {
                           "React": "bg-blue-50 text-blue-700 border-blue-200",
                           "Tailwind CSS": "bg-teal-50 text-teal-700 border-teal-200",
                           "PostgreSQL": "bg-indigo-50 text-indigo-700 border-indigo-200",
-                          "Stripe": "bg-purple-50 text-purple-700 border-purple-200"
+                          "Stripe": "bg-purple-50 text-purple-700 border-purple-200",
+                          "Tailwind": "bg-teal-50 text-teal-700 border-teal-200"
                         };
                         
                         const color = colors[tag as keyof typeof colors] || "bg-gray-100 text-gray-700 border-gray-200";
                         
+                        // For debugging
+                        console.log(`Featured Project: ${featuredProject.title}, Tag: "${tag}"`, tag === "Tailwind CSS");
+                        
+                        // Helper function to determine if it's a Tailwind tag
+                        const isTailwindTag = tag === "Tailwind" || tag === "Tailwind CSS";
+                        
                         return (
                           <span key={index} className={`${color} text-sm font-medium px-4 py-2 rounded-full border flex items-center`}>
                             {tag === "React" && <i className="ri-reactjs-line mr-1.5"></i>}
-                            {(tag === "Tailwind" || tag === "Tailwind CSS") && <i className="ri-wind-line mr-1.5"></i>}
+                            {isTailwindTag && <i className="ri-wind-line mr-1.5"></i>}
                             {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1.5"></i>}
                             {tag === "Stripe" && <i className="ri-secure-payment-line mr-1.5"></i>}
                             {tag}
@@ -395,10 +402,16 @@ export default function Home() {
                         
                         const color = colors[tag as keyof typeof colors] || "bg-gray-100 text-gray-700 border-gray-200";
                         
+                        // For debugging
+                        console.log(`Project: ${project.title}, Tag: "${tag}"`, tag === "Tailwind");
+                        
+                        // Helper function to determine if it's a Tailwind tag
+                        const isTailwindTag = tag === "Tailwind" || tag === "Tailwind CSS";
+                        
                         return (
                           <span key={index} className={`${color} text-xs font-medium px-2.5 py-1.5 rounded-full border flex items-center`}>
                             {tag === "React" && <i className="ri-reactjs-line mr-1"></i>}
-                            {(tag === "Tailwind" || tag === "Tailwind CSS") && <i className="ri-wind-line mr-1"></i>}
+                            {isTailwindTag && <i className="ri-wind-line mr-1"></i>}
                             {tag === "Firebase" && <i className="ri-fire-line mr-1"></i>}
                             {tag === "PostgreSQL" && <i className="ri-database-2-line mr-1"></i>}
                             {tag === "Stripe" && <i className="ri-secure-payment-line mr-1"></i>}
