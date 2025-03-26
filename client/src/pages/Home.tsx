@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "@/components/Header";
 import { MobileNavigation } from "@/components/MobileNavigation";
-import { ProfileImage } from "@/components/ProfileImage";
 import { AnalyticsCharts } from "@/components/AnalyticsCharts";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -30,7 +29,6 @@ const contactFormSchema = z.object({
 
 export default function Home() {
   const { toast } = useToast();
-  const [profileImageUrl, setProfileImageUrl] = useState<string>("");
   
   // Record page visit
   useEffect(() => {
@@ -53,13 +51,6 @@ export default function Home() {
   const { data: profileData } = useQuery({
     queryKey: ['/api/profile'],
   });
-  
-  // Set profile image URL when data is loaded
-  useEffect(() => {
-    if (profileData?.profileImage) {
-      setProfileImageUrl(profileData.profileImage);
-    }
-  }, [profileData]);
   
   // Fetch projects data
   const { data: projectsData } = useQuery({
@@ -136,19 +127,10 @@ export default function Home() {
             <div className="mb-8 md:mb-0 relative">
               <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
                 <img 
-                  src={profileImageUrl || "https://via.placeholder.com/200x200?text=Upload+Image"} 
+                  src="/profile-image.jpg" 
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-2 right-2">
-                  <ProfileImage 
-                    imageUrl={profileImageUrl} 
-                    onImageUpdate={setProfileImageUrl} 
-                  />
-                </div>
-              </div>
-              <div className="absolute -bottom-4 left-0 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
-                17 y/o
               </div>
             </div>
           </div>
@@ -170,7 +152,12 @@ export default function Home() {
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
                   <i className="fas fa-user text-2xl"></i>
                 </div>
-                <h3 className="text-xl font-bold mb-4 text-gray-900">Personal Info</h3>
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-xl font-bold text-gray-900">Personal Info</h3>
+                  <span className="bg-accent text-white text-sm font-bold px-3 py-1 rounded-full shadow-md">
+                    17 y/o
+                  </span>
+                </div>
                 <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center">
                     <span className="font-medium w-24 text-gray-700">Name:</span>
