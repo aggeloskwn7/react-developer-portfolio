@@ -470,8 +470,8 @@ export default function Home() {
                       </div>
                       <div>
                         <h4 className="font-bold mb-1 text-gray-800">Email</h4>
-                        <a href="mailto:aggelos.k@example.com" className="text-gray-600 hover:text-accent transition-colors">
-                          aggelos.k@example.com
+                        <a href="mailto:k1ngsx@icloud.com" className="text-gray-600 hover:text-accent transition-colors">
+                          k1ngsx@icloud.com
                         </a>
                       </div>
                     </div>
@@ -495,16 +495,16 @@ export default function Home() {
                       <div>
                         <h4 className="font-bold mb-2 text-gray-800">Social Media</h4>
                         <div className="flex space-x-4">
-                          <a href="https://github.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                          <a href="https://github.com/aggeloskwn7" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-github text-xl"></i>
                           </a>
-                          <a href="https://linkedin.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                          <a href="https://www.linkedin.com/in/aggeloskwn/" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-linkedin-in text-xl"></i>
                           </a>
-                          <a href="https://twitter.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                          <a href="https://x.com/aggeloskwn" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-twitter text-xl"></i>
                           </a>
-                          <a href="https://instagram.com" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+                          <a href="https://instagram.com/aggeloskwn" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-instagram text-xl"></i>
                           </a>
                         </div>
@@ -624,16 +624,16 @@ export default function Home() {
             </div>
             
             <div className="flex space-x-4">
-              <a href="https://github.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/aggeloskwn7" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-github text-xl"></i>
               </a>
-              <a href="https://linkedin.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/aggeloskwn/" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-linkedin-in text-xl"></i>
               </a>
-              <a href="https://twitter.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/aggeloskwn" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-twitter text-xl"></i>
               </a>
-              <a href="https://instagram.com" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
+              <a href="https://instagram.com/aggeloskwn" className="w-10 h-10 bg-gray-800 hover:bg-accent text-gray-400 hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                 <i className="fab fa-instagram text-xl"></i>
               </a>
             </div>
