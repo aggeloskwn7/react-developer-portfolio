@@ -18,13 +18,13 @@ export function MobileNavigation() {
         </li>
         <li>
           <a href="#analytics" className="flex flex-col items-center text-gray-700 hover:text-accent transition-colors">
-            <i className="ri-line-chart-line text-xl"></i>
+            <i className="fas fa-chart-line text-xl"></i>
             <span className="text-xs font-medium mt-1">Analytics</span>
           </a>
         </li>
         <li>
           <a href="#contact" className="flex flex-col items-center text-gray-700 hover:text-accent transition-colors">
-            <i className="ri-mail-line text-xl"></i>
+            <i className="fas fa-envelope text-xl"></i>
             <span className="text-xs font-medium mt-1">Contact</span>
           </a>
         </li>
