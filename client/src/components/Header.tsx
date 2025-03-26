@@ -24,23 +24,51 @@ export function Header() {
   };
 
   return (
-    <header className={`bg-white border-b border-primary-200 py-4 px-6 sticky top-0 z-10 transition-shadow ${isScrolled ? 'shadow-md' : ''}`}>
+    <header className={`bg-white py-4 px-6 sticky top-0 z-10 transition-all ${isScrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
-        <h1 className="text-xl font-bold text-primary-900">
-          <span className="text-accent">Aggelos</span> Kwnstantinou
+        <h1 className="text-xl font-bold text-gray-900">
+          <span className="text-accent font-extrabold">Aggelos</span> Kwnstantinou
         </h1>
         
         {/* Desktop Navigation */}
         <nav className="hidden sm:block">
-          <ul className="flex space-x-6 text-sm font-medium">
-            <li><a href="#about" className="text-gray-700 hover:text-accent transition-colors">About</a></li>
-            <li><a href="#projects" className="text-gray-700 hover:text-accent transition-colors">Projects</a></li>
-            <li><a href="#analytics" className="text-gray-700 hover:text-accent transition-colors">Analytics</a></li>
-            <li><a href="#contact" className="text-gray-700 hover:text-accent transition-colors">Contact</a></li>
+          <ul className="flex space-x-8 text-sm font-medium">
+            <li>
+              <a 
+                href="#about" 
+                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              >
+                About
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#projects" 
+                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              >
+                Projects
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#analytics" 
+                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              >
+                Analytics
+              </a>
+            </li>
+            <li>
+              <a 
+                href="#contact" 
+                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+              >
+                Contact
+              </a>
+            </li>
           </ul>
         </nav>
         
-        <Button onClick={downloadResume} className="bg-accent hover:bg-accent/90 text-white">
+        <Button onClick={downloadResume} className="btn-primary">
           Download CV
         </Button>
       </div>

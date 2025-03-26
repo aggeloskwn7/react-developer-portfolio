@@ -16,26 +16,38 @@
 
 @layer components {
   .text-accent {
-    color: hsl(245, 83%, 55%);
+    color: #FF5722;
   }
   
   .bg-accent {
-    background-color: hsl(245, 83%, 55%);
+    background-color: #FF5722;
   }
   
   .bg-accent-100 {
-    background-color: hsl(245, 83%, 92%);
+    background-color: rgba(255, 87, 34, 0.15);
   }
   
   .hover\:bg-accent\/90:hover {
-    background-color: hsl(245, 83%, 50%);
+    background-color: #E64A19;
   }
   
   .shadow-soft {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
   
   .shadow-hover {
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .btn-primary {
+    @apply bg-accent text-white font-medium py-3 px-6 rounded-lg shadow-md hover:bg-[#E64A19] transition duration-300 ease-in-out transform hover:-translate-y-1;
+  }
+  
+  .btn-secondary {
+    @apply bg-white text-gray-800 border border-gray-300 font-medium py-3 px-6 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 ease-in-out transform hover:-translate-y-1;
+  }
+  
+  .card {
+    @apply bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-all duration-300;
   }
 }

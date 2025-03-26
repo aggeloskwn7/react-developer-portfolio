@@ -111,128 +111,145 @@ export default function Home() {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-[#303f9f] to-[#1a237e] text-white py-16 px-6">
+        <section className="bg-gradient-to-br from-white via-white to-gray-100 py-20 px-6">
           <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
             <div className="md:w-2/3 animate-[slideUp_0.5s_ease-out]">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">Hi, I'm {profileData?.name || "Aggelos Kwnstantinou"}</h1>
-              <p className="text-lg text-gray-200 mb-8">
-                Young developer passionate about creating impactful digital experiences.
+              <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-4">
+                Full Stack Developer
+              </span>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 text-gray-900">
+                Hi, I'm <span className="text-accent">{profileData?.name || "Aggelos Kwnstantinou"}</span>
+              </h1>
+              <p className="text-xl text-gray-600 mb-8 max-w-lg">
+                Young developer passionate about creating impactful digital experiences. Building the web, one line of code at a time.
               </p>
-              <div className="flex space-x-4">
-                <a href="#projects" className="bg-accent hover:bg-accent/90 text-white px-6 py-3 rounded-md font-medium transition-colors">
+              <div className="flex flex-wrap gap-4">
+                <a href="#projects" className="btn-primary">
                   View My Work
                 </a>
-                <a href="#contact" className="bg-transparent border border-white hover:bg-white hover:text-[#1a237e] text-white px-6 py-3 rounded-md font-medium transition-colors">
+                <a href="#contact" className="btn-secondary">
                   Get In Touch
                 </a>
               </div>
             </div>
             
-            <ProfileImage 
-              imageUrl={profileImageUrl} 
-              onImageUpdate={setProfileImageUrl} 
-            />
+            <div className="mb-8 md:mb-0 relative">
+              <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                <ProfileImage 
+                  imageUrl={profileImageUrl} 
+                  onImageUpdate={setProfileImageUrl} 
+                />
+              </div>
+              <div className="absolute -bottom-4 -right-4 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+                17 y/o
+              </div>
+            </div>
           </div>
         </section>
         
         {/* About Section */}
-        <section id="about" className="py-16 px-6 bg-white">
+        <section id="about" className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">About Me</h2>
+            <div className="text-center mb-16">
+              <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
+                About Me
+              </span>
+              <h2 className="text-4xl font-bold text-gray-900">Who I Am</h2>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Personal Info Card */}
-              <div className="bg-primary-50 rounded-xl p-6 shadow-soft hover:shadow-hover transition-shadow">
-                <div className="w-12 h-12 bg-accent-100 text-accent rounded-lg flex items-center justify-center mb-4">
-                  <i className="ri-user-line text-xl"></i>
+              <div className="card hover:border-accent/20">
+                <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
+                  <i className="ri-user-line text-2xl"></i>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Personal Info</h3>
-                <ul className="space-y-2 text-primary-700">
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Personal Info</h3>
+                <ul className="space-y-3 text-gray-600">
                   <li className="flex items-center">
-                    <span className="font-medium w-20">Name:</span>
+                    <span className="font-medium w-24 text-gray-700">Name:</span>
                     <span>{profileData?.name || "Aggelos Kwnstantinou"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="font-medium w-20">Age:</span>
+                    <span className="font-medium w-24 text-gray-700">Age:</span>
                     <span>{profileData?.age || 17}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="font-medium w-20">Location:</span>
+                    <span className="font-medium w-24 text-gray-700">Location:</span>
                     <span>{profileData?.location || "Greece"}</span>
                   </li>
                 </ul>
               </div>
               
               {/* Skills Card */}
-              <div className="bg-primary-50 rounded-xl p-6 shadow-soft hover:shadow-hover transition-shadow">
-                <div className="w-12 h-12 bg-accent-100 text-accent rounded-lg flex items-center justify-center mb-4">
-                  <i className="ri-code-line text-xl"></i>
+              <div className="card hover:border-accent/20">
+                <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
+                  <i className="ri-code-line text-2xl"></i>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Skills</h3>
-                <div className="space-y-3">
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Skills</h3>
+                <div className="space-y-4">
                   <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium">Web Development</span>
-                      <span className="text-sm font-medium">85%</span>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-gray-700">Web Development</span>
+                      <span className="font-medium text-accent">85%</span>
                     </div>
-                    <div className="w-full bg-primary-200 rounded-full h-2">
-                      <div className="bg-accent h-2 rounded-full" style={{ width: "85%" }}></div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div className="bg-accent h-2.5 rounded-full" style={{ width: "85%" }}></div>
                     </div>
                   </div>
                   <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium">Backend</span>
-                      <span className="text-sm font-medium">75%</span>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-gray-700">Backend</span>
+                      <span className="font-medium text-accent">75%</span>
                     </div>
-                    <div className="w-full bg-primary-200 rounded-full h-2">
-                      <div className="bg-accent h-2 rounded-full" style={{ width: "75%" }}></div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div className="bg-accent h-2.5 rounded-full" style={{ width: "75%" }}></div>
                     </div>
                   </div>
                   <div>
-                    <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium">UI/UX Design</span>
-                      <span className="text-sm font-medium">70%</span>
+                    <div className="flex justify-between mb-2">
+                      <span className="font-medium text-gray-700">UI/UX Design</span>
+                      <span className="font-medium text-accent">70%</span>
                     </div>
-                    <div className="w-full bg-primary-200 rounded-full h-2">
-                      <div className="bg-accent h-2 rounded-full" style={{ width: "70%" }}></div>
+                    <div className="w-full bg-gray-200 rounded-full h-2.5">
+                      <div className="bg-accent h-2.5 rounded-full" style={{ width: "70%" }}></div>
                     </div>
                   </div>
                 </div>
               </div>
               
               {/* Education Card */}
-              <div className="bg-primary-50 rounded-xl p-6 shadow-soft hover:shadow-hover transition-shadow">
-                <div className="w-12 h-12 bg-accent-100 text-accent rounded-lg flex items-center justify-center mb-4">
-                  <i className="ri-book-open-line text-xl"></i>
+              <div className="card hover:border-accent/20">
+                <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
+                  <i className="ri-book-open-line text-2xl"></i>
                 </div>
-                <h3 className="text-lg font-semibold mb-2">Education</h3>
+                <h3 className="text-xl font-bold mb-4 text-gray-900">Education</h3>
                 <div className="space-y-4">
                   <div>
-                    <p className="text-primary-500 text-sm">2023 - Present</p>
-                    <h4 className="font-medium">High School Diploma</h4>
-                    <p className="text-sm text-primary-600">Currently attending high school</p>
+                    <p className="text-accent text-sm font-semibold">2023 - Present</p>
+                    <h4 className="font-bold text-gray-800 mt-1">High School Diploma</h4>
+                    <p className="text-sm text-gray-600 mt-1">Currently attending high school</p>
                   </div>
                   <div>
-                    <p className="text-primary-500 text-sm">2022 - 2023</p>
-                    <h4 className="font-medium">Web Development Course</h4>
-                    <p className="text-sm text-primary-600">Online certification</p>
+                    <p className="text-accent text-sm font-semibold">2022 - 2023</p>
+                    <h4 className="font-bold text-gray-800 mt-1">Web Development Course</h4>
+                    <p className="text-sm text-gray-600 mt-1">Online certification</p>
                   </div>
                   <div>
-                    <p className="text-primary-500 text-sm">2021 - 2022</p>
-                    <h4 className="font-medium">Introduction to Programming</h4>
-                    <p className="text-sm text-primary-600">Self-taught</p>
+                    <p className="text-accent text-sm font-semibold">2021 - 2022</p>
+                    <h4 className="font-bold text-gray-800 mt-1">Introduction to Programming</h4>
+                    <p className="text-sm text-gray-600 mt-1">Self-taught</p>
                   </div>
                 </div>
               </div>
             </div>
             
             {/* Bio Section */}
-            <div className="mt-12 bg-primary-50 rounded-xl p-8 shadow-soft">
-              <h3 className="text-xl font-semibold mb-4">About Me</h3>
-              <p className="text-primary-700 leading-relaxed mb-4">
+            <div className="mt-16 card border-2 border-accent/20">
+              <h3 className="text-2xl font-bold mb-5 text-gray-900">My Story</h3>
+              <p className="text-gray-700 leading-relaxed mb-5 text-lg">
                 {profileData?.bio || "I'm a 17-year-old developer passionate about creating innovative digital experiences. Despite my young age, I've already started building various projects, including web applications and an online casino platform."}
               </p>
-              <p className="text-primary-700 leading-relaxed">
+              <p className="text-gray-700 leading-relaxed text-lg">
                 I'm constantly learning new technologies and improving my skills. My goal is to become a full-stack developer 
                 and create applications that make a positive impact on users' lives.
               </p>
