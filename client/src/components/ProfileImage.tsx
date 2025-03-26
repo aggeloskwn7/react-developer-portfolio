@@ -49,7 +49,8 @@ export function ProfileImage({ imageUrl, onImageUpdate }: ProfileImageProps) {
       
       const formData = new FormData();
       formData.append("image", file);
-      
+
+      // Directly use FormData with fetch since apiRequest doesn't support FormData
       const response = await fetch("/api/profile/image", {
         method: "POST",
         body: formData,
@@ -81,36 +82,26 @@ export function ProfileImage({ imageUrl, onImageUpdate }: ProfileImageProps) {
   };
 
   return (
-    <div className="mb-8 md:mb-0 relative w-[120px] h-[120px]">
-      <div className="w-full h-full rounded-full overflow-hidden bg-primary-700 flex items-center justify-center border-3 border-white shadow-lg">
-        <img 
-          src={imageUrl || "https://via.placeholder.com/120x120"}
-          alt="Profile Picture" 
-          className="w-full h-full object-cover"
-        />
-      </div>
-      
-      <div className="absolute right-0 bottom-0 z-10">
-        <Input 
-          type="file" 
-          ref={inputRef}
-          accept="image/jpeg,image/png,image/gif" 
-          className="hidden" 
-          onChange={handleFileChange} 
-        />
-        <Button 
-          size="icon"
-          onClick={handleUploadClick}
-          className="rounded-full bg-accent hover:bg-accent/90 h-9 w-9"
-          disabled={isUploading}
-        >
-          {isUploading ? (
-            <i className="ri-loader-4-line animate-spin text-white"></i>
-          ) : (
-            <i className="ri-camera-line text-white"></i>
-          )}
-        </Button>
-      </div>
+    <div className="relative">
+      <Input 
+        type="file" 
+        ref={inputRef}
+        accept="image/jpeg,image/png,image/gif" 
+        className="hidden" 
+        onChange={handleFileChange} 
+      />
+      <Button 
+        size="icon"
+        onClick={handleUploadClick}
+        className="rounded-full bg-accent hover:bg-accent/90 h-9 w-9 shadow-md"
+        disabled={isUploading}
+      >
+        {isUploading ? (
+          <i className="fas fa-spinner fa-spin text-white"></i>
+        ) : (
+          <i className="fas fa-camera text-white"></i>
+        )}
+      </Button>
     </div>
   );
 }

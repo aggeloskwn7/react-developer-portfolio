@@ -135,10 +135,17 @@ export default function Home() {
             
             <div className="mb-8 md:mb-0 relative">
               <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
-                <ProfileImage 
-                  imageUrl={profileImageUrl} 
-                  onImageUpdate={setProfileImageUrl} 
+                <img 
+                  src={profileImageUrl || "https://via.placeholder.com/200x200?text=Upload+Image"} 
+                  alt="Profile" 
+                  className="w-full h-full object-cover"
                 />
+                <div className="absolute bottom-0 right-0 m-2">
+                  <ProfileImage 
+                    imageUrl={profileImageUrl} 
+                    onImageUpdate={setProfileImageUrl} 
+                  />
+                </div>
               </div>
               <div className="absolute -bottom-4 -right-4 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
                 17 y/o
@@ -161,7 +168,7 @@ export default function Home() {
               {/* Personal Info Card */}
               <div className="card hover:border-accent/20">
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
-                  <i className="ri-user-line text-2xl"></i>
+                  <i className="fas fa-user text-2xl"></i>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Personal Info</h3>
                 <ul className="space-y-3 text-gray-600">
@@ -183,7 +190,7 @@ export default function Home() {
               {/* Skills Card */}
               <div className="card hover:border-accent/20">
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
-                  <i className="ri-code-line text-2xl"></i>
+                  <i className="fas fa-code text-2xl"></i>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Skills</h3>
                 <div className="space-y-4">
