@@ -140,14 +140,14 @@ export default function Home() {
                   alt="Profile" 
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute bottom-0 right-0 m-2">
+                <div className="absolute bottom-2 right-2">
                   <ProfileImage 
                     imageUrl={profileImageUrl} 
                     onImageUpdate={setProfileImageUrl} 
                   />
                 </div>
               </div>
-              <div className="absolute -bottom-4 -right-4 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+              <div className="absolute -bottom-4 left-0 bg-accent text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
                 17 y/o
               </div>
             </div>
