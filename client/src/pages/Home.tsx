@@ -465,10 +465,10 @@ export default function Home() {
                     </div>
                     
                     <div className="flex items-start">
-                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md flex-shrink-0">
                         <i className="fas fa-envelope text-xl"></i>
                       </div>
-                      <div>
+                      <div className="flex-grow">
                         <h4 className="font-bold mb-1 text-gray-800">Email</h4>
                         <a href="mailto:k1ngsx@icloud.com" className="text-gray-600 hover:text-accent transition-colors">
                           k1ngsx@icloud.com
@@ -477,10 +477,10 @@ export default function Home() {
                     </div>
                     
                     <div className="flex items-start">
-                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md flex-shrink-0">
                         <i className="fas fa-map-marker-alt text-xl"></i>
                       </div>
-                      <div>
+                      <div className="flex-grow">
                         <h4 className="font-bold mb-1 text-gray-800">Location</h4>
                         <p className="text-gray-600">
                           {profileData?.location || "Athens, Greece"}
@@ -489,12 +489,12 @@ export default function Home() {
                     </div>
                     
                     <div className="flex items-start">
-                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md">
+                      <div className="w-12 h-12 bg-accent text-white rounded-lg flex items-center justify-center mr-4 shadow-md flex-shrink-0">
                         <i className="fas fa-share-alt text-xl"></i>
                       </div>
-                      <div>
+                      <div className="flex-grow">
                         <h4 className="font-bold mb-2 text-gray-800">Social Media</h4>
-                        <div className="flex space-x-4">
+                        <div className="flex flex-wrap gap-3">
                           <a href="https://github.com/aggeloskwn7" className="w-10 h-10 bg-gray-200 text-gray-700 hover:bg-accent hover:text-white rounded-full flex items-center justify-center transition-colors" target="_blank" rel="noopener noreferrer">
                             <i className="fab fa-github text-xl"></i>
                           </a>
