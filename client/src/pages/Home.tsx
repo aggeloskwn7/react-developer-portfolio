@@ -227,7 +227,7 @@ export default function Home() {
               {/* Education Card */}
               <div className="card hover:border-accent/20">
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
-                  <i className="ri-book-open-line text-2xl"></i>
+                  <i className="fas fa-book-open text-2xl"></i>
                 </div>
                 <h3 className="text-xl font-bold mb-4 text-gray-900">Education</h3>
                 <div className="space-y-4">
@@ -336,7 +336,7 @@ export default function Home() {
                         rel="noopener noreferrer"
                       >
                         <span>View Live</span>
-                        <i className="ri-external-link-line ml-2"></i>
+                        <i className="fas fa-external-link-alt ml-2"></i>
                       </a>
                       {featuredProject.githubUrl && (
                         <a 
@@ -346,7 +346,7 @@ export default function Home() {
                           rel="noopener noreferrer"
                         >
                           <span>Source Code</span>
-                          <i className="ri-github-line ml-2"></i>
+                          <i className="fab fa-github ml-2"></i>
                         </a>
                       )}
                     </div>
@@ -597,7 +597,7 @@ export default function Home() {
                       >
                         {form.formState.isSubmitting ? (
                           <span className="flex items-center justify-center">
-                            <i className="ri-loader-4-line animate-spin mr-2"></i>
+                            <i className="fas fa-spinner animate-spin mr-2"></i>
                             Sending...
                           </span>
                         ) : (

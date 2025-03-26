@@ -6,13 +6,13 @@ export function MobileNavigation() {
       <ul className="flex justify-between items-center">
         <li>
           <a href="#about" className="flex flex-col items-center text-gray-700 hover:text-accent transition-colors">
-            <i className="ri-user-line text-xl"></i>
+            <i className="fas fa-user text-xl"></i>
             <span className="text-xs font-medium mt-1">About</span>
           </a>
         </li>
         <li>
           <a href="#projects" className="flex flex-col items-center text-gray-700 hover:text-accent transition-colors">
-            <i className="ri-folder-line text-xl"></i>
+            <i className="fas fa-folder text-xl"></i>
             <span className="text-xs font-medium mt-1">Projects</span>
           </a>
         </li>
