@@ -4,6 +4,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { Header } from "@/components/Header";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { AnalyticsCharts } from "@/components/AnalyticsCharts";
+import { StripePaymentButton } from "@/components/StripePaymentButton";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -372,6 +373,10 @@ export default function Home() {
                           <i className="fab fa-github ml-2"></i>
                         </a>
                       )}
+                      <StripePaymentButton 
+                        amount={25} 
+                        label="Fund Rage Bet Account" 
+                      />
                     </div>
                   </div>
                 </div>

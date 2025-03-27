@@ -5,6 +5,15 @@ import multer from "multer";
 import path from "path";
 import { insertMessageSchema, insertProfileSchema, insertVisitSchema } from "@shared/schema";
 import { fromZodError } from "zod-validation-error";
+import Stripe from "stripe";
+
+if (!process.env.STRIPE_SECRET_KEY) {
+  console.warn('Missing required Stripe secret: STRIPE_SECRET_KEY');
+}
+
+const stripe = process.env.STRIPE_SECRET_KEY 
+  ? new Stripe(process.env.STRIPE_SECRET_KEY) 
+  : undefined;
 
 // Setup multer for file uploads
 const upload = multer({ 
@@ -193,6 +202,76 @@ export async function registerRoutes(app: Express): Promise<Server> {
       res.status(500).json({ message: "Failed to send message" });
     }
   });
+
+  // Stripe payment endpoints
+  if (stripe) {
+    // Create a payment intent
+    app.post("/api/create-payment-intent", async (req: Request, res: Response) => {
+      try {
+        const { amount, description = "Rage Bet deposit" } = req.body;
+        
+        if (!amount || amount < 1) {
+          return res.status(400).json({ message: "Invalid amount" });
+        }
+
+        // Create a payment intent
+        const paymentIntent = await stripe.paymentIntents.create({
+          amount: Math.round(amount * 100), // Convert to cents
+          currency: "usd",
+          description,
+          metadata: {
+            integration_check: "accept_a_payment",
+            source: "portfolio_website"
+          }
+        });
+
+        res.json({ 
+          clientSecret: paymentIntent.client_secret,
+          paymentIntentId: paymentIntent.id
+        });
+      } catch (error: any) {
+        console.error("Error creating payment intent:", error);
+        res
+          .status(500)
+          .json({ message: "Error creating payment intent: " + error.message });
+      }
+    });
+
+    // Get payment status
+    app.get("/api/payment-status", async (req: Request, res: Response) => {
+      try {
+        const { payment_intent } = req.query;
+        
+        if (!payment_intent) {
+          return res.status(400).json({ message: "Payment intent ID is required" });
+        }
+
+        const paymentIntent = await stripe.paymentIntents.retrieve(payment_intent as string);
+        
+        res.json({
+          status: paymentIntent.status,
+          amount: paymentIntent.amount / 100, // Convert from cents to dollars
+          currency: paymentIntent.currency,
+          paymentMethod: paymentIntent.payment_method_types,
+          created: new Date(paymentIntent.created * 1000).toISOString()
+        });
+      } catch (error: any) {
+        console.error("Error retrieving payment intent:", error);
+        res
+          .status(500)
+          .json({ message: "Error retrieving payment status: " + error.message });
+      }
+    });
+  } else {
+    // If Stripe is not configured, return appropriate error responses
+    app.post("/api/create-payment-intent", (req: Request, res: Response) => {
+      res.status(503).json({ message: "Stripe is not configured" });
+    });
+    
+    app.get("/api/payment-status", (req: Request, res: Response) => {
+      res.status(503).json({ message: "Stripe is not configured" });
+    });
+  }
 
   const httpServer = createServer(app);
   
