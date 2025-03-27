@@ -114,7 +114,7 @@ export class MemStorage implements IStorage {
       projectUrl: "https://weather-aggeloskwn.replit.app",
       githubUrl: "https://github.com/aggeloskwn7/Weather-App",
       featured: false,
-      tags: ["JavaScript", "API", "CSS"]
+      tags: ["React", "Tailwind CSS", "API"]
     };
     this.projects.set(weatherApp.id, weatherApp);
 
