@@ -33,8 +33,8 @@ export function Header() {
 
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/Aggelos_Kwnstantinou_CV.pdf"; // CV file in public folder
-    link.download = "Aggelos_Kwnstantinou_CV.pdf";
+    link.href = "/favicon_io-2/Aggelos_Kwnstantinou_CV_Styled.pdf"; // New styled CV file
+    link.download = "Aggelos_Kwnstantinou_CV_Styled.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
