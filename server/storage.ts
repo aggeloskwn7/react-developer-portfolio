@@ -99,7 +99,7 @@ export class MemStorage implements IStorage {
       description: "An online casino platform offering various games including slots, plinko, blackjack, and crash. The project features user authentication, virtual currency management, and real-time gaming experiences.",
       imageUrl: "/ragebet.png",
       projectUrl: "https://ragebet.replit.app",
-      githubUrl: "https://github.com/aggelos/ragebet",
+      githubUrl: "https://github.com/aggeloskwn7/Online-Casino",
       featured: true,
       tags: ["React", "Tailwind CSS", "PostgreSQL", "Stripe"]
     };
