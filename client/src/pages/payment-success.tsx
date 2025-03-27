@@ -3,10 +3,17 @@ import { useLocation } from 'wouter';
 import { apiRequest } from "@/lib/queryClient";
 import { Button } from "@/components/ui/button";
 
+interface PaymentData {
+  status: string;
+  amount?: number;
+  currency?: string;
+}
+
 export default function PaymentSuccess() {
   const [paymentStatus, setPaymentStatus] = useState<{
     status: 'loading' | 'success' | 'error';
     message?: string;
+    paymentData?: PaymentData;
   }>({ status: 'loading' });
   const [, setLocation] = useLocation();
 
@@ -40,12 +47,14 @@ export default function PaymentSuccess() {
         if (data.status === 'succeeded') {
           setPaymentStatus({ 
             status: 'success',
-            message: 'Your payment was successful! Your account has been credited.'
+            message: 'Your payment was successful! Your account has been credited.',
+            paymentData: data
           });
         } else {
           setPaymentStatus({ 
             status: 'error',
-            message: `Payment status: ${data.status}. Please contact support if you need assistance.`
+            message: `Payment status: ${data.status}. Please contact support if you need assistance.`,
+            paymentData: data
           });
         }
       } catch (error) {
@@ -60,6 +69,17 @@ export default function PaymentSuccess() {
     verifyPayment();
   }, []);
 
+  const formatAmount = (amount?: number, currency?: string) => {
+    if (!amount) return '';
+    
+    return new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: currency || 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(amount);
+  };
+
   const getContent = () => {
     switch (paymentStatus.status) {
       case 'loading':
@@ -70,12 +90,22 @@ export default function PaymentSuccess() {
         );
       
       case 'success':
+        const { paymentData } = paymentStatus;
+        const formattedAmount = formatAmount(paymentData?.amount, paymentData?.currency);
+        
         return (
           <div className="text-center">
             <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
               <i className="fas fa-check text-3xl"></i>
             </div>
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Payment Successful!</h2>
+            
+            {formattedAmount && (
+              <div className="text-2xl font-bold text-accent mb-4">
+                Amount: {formattedAmount}
+              </div>
+            )}
+            
             <p className="text-gray-600 mb-8">{paymentStatus.message}</p>
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Button 

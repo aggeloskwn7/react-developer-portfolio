@@ -118,6 +118,14 @@ export default function Checkout() {
     fetchPaymentIntent();
   }, [toast]);
 
+  const amount = getAmountFromUrl();
+  const formattedAmount = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
+  }).format(amount);
+
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
       <header className="bg-white border-b border-gray-200 py-4">
@@ -132,7 +140,10 @@ export default function Checkout() {
         <div className="w-full max-w-md">
           <div className="text-center mb-8">
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Secure Checkout</h1>
-            <p className="text-gray-600">Complete your payment for Rage Bet</p>
+            <p className="text-gray-600 mb-1">Complete your payment for Rage Bet</p>
+            <div className="text-2xl font-bold text-accent mt-4">
+              Payment Amount: {formattedAmount}
+            </div>
           </div>
           
           {!clientSecret ? (
