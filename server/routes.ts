@@ -171,11 +171,22 @@ export async function registerRoutes(app: Express): Promise<Server> {
         return res.status(400).json({ message: errorMessage });
       }
       
+      // Save the message to the database
       const message = await storage.createMessage(result.data);
+      
+      // Import the email service here to avoid circular dependencies
+      const { sendContactEmail } = await import('./emailService');
+      
+      // Send an email notification
+      const emailSent = await sendContactEmail(message);
+      
       res.status(201).json({ 
         success: true, 
-        message: "Message sent successfully",
-        id: message.id
+        message: emailSent 
+          ? "Message sent successfully. You'll receive a reply soon!" 
+          : "Message saved successfully, but email notification failed.",
+        id: message.id,
+        emailSent
       });
     } catch (error) {
       console.error("Error submitting contact form:", error);

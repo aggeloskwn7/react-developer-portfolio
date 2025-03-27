@@ -78,10 +78,20 @@ export default function Home() {
       const response = await apiRequest("POST", "/api/contact", values);
       
       if (response.ok) {
-        toast({
-          title: "Message sent",
-          description: "Your message has been sent successfully. I'll get back to you soon!",
-        });
+        const data = await response.json();
+        
+        if (data.emailSent) {
+          toast({
+            title: "Message sent successfully!",
+            description: "Your message has been sent to my email. I'll get back to you soon!",
+          });
+        } else {
+          toast({
+            title: "Message received",
+            description: "Your message was saved, but there was an issue with the email notification. I'll still see your message in my dashboard.",
+            variant: "default",
+          });
+        }
         
         // Reset form
         form.reset();
