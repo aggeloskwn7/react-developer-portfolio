@@ -3,6 +3,15 @@ import { useState, useEffect } from "react";
 
 export function MobileNavigation() {
   const [activeSection, setActiveSection] = useState("about");
+  
+  const downloadResume = () => {
+    const link = document.createElement("a");
+    link.href = "/Aggelos_Kwnstantinou_CV.pdf"; // CV file in public folder
+    link.download = "Aggelos_Kwnstantinou_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -61,6 +70,15 @@ export function MobileNavigation() {
             <i className="fas fa-folder text-xl"></i>
             <span className="text-xs font-medium mt-1">Projects</span>
           </a>
+        </li>
+        <li>
+          <button
+            onClick={downloadResume}
+            className="flex flex-col items-center text-accent transition-colors duration-300"
+          >
+            <i className="fas fa-download text-xl"></i>
+            <span className="text-xs font-medium mt-1">CV</span>
+          </button>
         </li>
         <li>
           <a 

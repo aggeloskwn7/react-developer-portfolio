@@ -33,8 +33,8 @@ export function Header() {
 
   const downloadResume = () => {
     const link = document.createElement("a");
-    link.href = "/uploads/resume.pdf"; // Assuming resume is stored in this path
-    link.download = "Aggelos_Kwnstantinou_Resume.pdf";
+    link.href = "/Aggelos_Kwnstantinou_CV.pdf"; // CV file in public folder
+    link.download = "Aggelos_Kwnstantinou_CV.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -101,7 +101,11 @@ export function Header() {
           </ul>
         </nav>
         
-        <Button onClick={downloadResume} className="btn-primary">
+        <Button 
+          onClick={downloadResume} 
+          className="btn-primary flex items-center justify-center transition duration-300 ease-in-out transform hover:-translate-y-1"
+        >
+          <i className="fas fa-download mr-2"></i>
           Download CV
         </Button>
       </div>
