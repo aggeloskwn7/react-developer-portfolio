@@ -61,7 +61,7 @@ const CheckoutForm = () => {
       </div>
       <Button 
         type="submit" 
-        className="btn-primary w-full" 
+        className="btn-primary w-full flex items-center justify-center" 
         disabled={!stripe || isLoading}
       >
         {isLoading ? (
@@ -70,7 +70,10 @@ const CheckoutForm = () => {
             Processing...
           </span>
         ) : (
-          "Complete Payment"
+          <>
+            <i className="fas fa-credit-card mr-2"></i>
+            Complete Payment
+          </>
         )}
       </Button>
     </form>

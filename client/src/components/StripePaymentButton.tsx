@@ -33,7 +33,7 @@ export function StripePaymentButton({
   return (
     <Button 
       onClick={handlePayment}
-      className={`bg-accent hover:bg-accent/90 text-white ${className}`}
+      className={`bg-accent text-white font-medium shadow-md hover:bg-[#E64A19] transition duration-300 ease-in-out transform hover:-translate-y-1 ${className}`}
       disabled={isLoading}
     >
       {isLoading ? (

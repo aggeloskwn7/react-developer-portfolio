@@ -110,15 +110,17 @@ export default function PaymentSuccess() {
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => window.location.href = "https://ragebet.replit.app"}
-                className="btn-primary"
+                className="btn-primary flex items-center justify-center"
               >
+                <i className="fas fa-dice mr-2"></i>
                 Go to Rage Bet
               </Button>
               <Button 
                 onClick={() => setLocation('/')}
                 variant="outline"
-                className="border-accent text-accent hover:bg-accent-100"
+                className="border-accent text-accent hover:bg-accent-100 transition duration-300 ease-in-out transform hover:-translate-y-1 flex items-center justify-center"
               >
+                <i className="fas fa-arrow-left mr-2"></i>
                 Return to Portfolio
               </Button>
             </div>
@@ -136,15 +138,17 @@ export default function PaymentSuccess() {
             <div className="flex flex-col md:flex-row gap-4 justify-center">
               <Button 
                 onClick={() => setLocation('/checkout')}
-                className="btn-primary"
+                className="btn-primary flex items-center justify-center"
               >
+                <i className="fas fa-redo mr-2"></i>
                 Try Again
               </Button>
               <Button 
                 onClick={() => setLocation('/')}
                 variant="outline"
-                className="border-accent text-accent hover:bg-accent-100"
+                className="border-accent text-accent hover:bg-accent-100 transition duration-300 ease-in-out transform hover:-translate-y-1 flex items-center justify-center"
               >
+                <i className="fas fa-arrow-left mr-2"></i>
                 Return to Portfolio
               </Button>
             </div>
