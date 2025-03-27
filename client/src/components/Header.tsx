@@ -4,10 +4,27 @@ import { useEffect, useState } from "react";
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("about");
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
+      
+      // Update active section based on scroll position
+      const sections = ["about", "projects", "analytics", "contact"];
+      let currentSection = sections[0];
+      
+      sections.forEach(section => {
+        const element = document.getElementById(section);
+        if (element) {
+          const rect = element.getBoundingClientRect();
+          if (rect.top <= 150 && rect.bottom >= 150) {
+            currentSection = section;
+          }
+        }
+      });
+      
+      setActiveSection(currentSection);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -23,8 +40,20 @@ export function Header() {
     document.body.removeChild(link);
   };
 
+  const scrollToSection = (sectionId: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      window.scrollTo({
+        top: section.offsetTop - 80, // Offset for header height
+        behavior: "smooth",
+      });
+      setActiveSection(sectionId);
+    }
+  };
+
   return (
-    <header className={`bg-white py-4 px-6 sticky top-0 z-10 transition-all ${isScrolled ? 'shadow-md' : 'shadow-sm'}`}>
+    <header className={`bg-white py-4 px-6 sticky top-0 z-10 transition-all duration-300 ${isScrolled ? 'shadow-md' : 'shadow-sm'}`}>
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <h1 className="text-xl font-bold text-gray-900">
           <span className="text-accent font-extrabold">Aggelos</span> Kwnstantinou
@@ -36,7 +65,8 @@ export function Header() {
             <li>
               <a 
                 href="#about" 
-                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                onClick={(e) => scrollToSection("about", e)}
+                className={`text-gray-800 hover:text-accent transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full ${activeSection === "about" ? "text-accent after:w-full" : ""}`}
               >
                 About
               </a>
@@ -44,7 +74,8 @@ export function Header() {
             <li>
               <a 
                 href="#projects" 
-                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                onClick={(e) => scrollToSection("projects", e)}
+                className={`text-gray-800 hover:text-accent transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full ${activeSection === "projects" ? "text-accent after:w-full" : ""}`}
               >
                 Projects
               </a>
@@ -52,7 +83,8 @@ export function Header() {
             <li>
               <a 
                 href="#analytics" 
-                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                onClick={(e) => scrollToSection("analytics", e)}
+                className={`text-gray-800 hover:text-accent transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full ${activeSection === "analytics" ? "text-accent after:w-full" : ""}`}
               >
                 Analytics
               </a>
@@ -60,7 +92,8 @@ export function Header() {
             <li>
               <a 
                 href="#contact" 
-                className="text-gray-800 hover:text-accent transition-colors relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full"
+                onClick={(e) => scrollToSection("contact", e)}
+                className={`text-gray-800 hover:text-accent transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-accent after:transition-all hover:after:w-full ${activeSection === "contact" ? "text-accent after:w-full" : ""}`}
               >
                 Contact
               </a>

@@ -5,6 +5,7 @@ import { Header } from "@/components/Header";
 import { MobileNavigation } from "@/components/MobileNavigation";
 import { AnalyticsCharts } from "@/components/AnalyticsCharts";
 import { StripePaymentButton } from "@/components/StripePaymentButton";
+import { FadeInSection } from "@/components/FadeInSection";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -144,7 +145,7 @@ export default function Home() {
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-white via-white to-gray-100 py-20 px-6">
           <div className="max-w-5xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between">
-            <div className="md:w-2/3 animate-[slideUp_0.5s_ease-out]">
+            <FadeInSection className="md:w-2/3" delay={100}>
               <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-4">
                 Full Stack Developer
               </span>
@@ -162,9 +163,9 @@ export default function Home() {
                   Get In Touch
                 </a>
               </div>
-            </div>
+            </FadeInSection>
             
-            <div className="mb-8 md:mb-0 relative">
+            <FadeInSection className="mb-8 md:mb-0 relative" delay={300}>
               <div className="w-52 h-52 md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white shadow-xl">
                 <img 
                   src="/profile-image.jpg" 
@@ -172,23 +173,23 @@ export default function Home() {
                   className="w-full h-full object-cover"
                 />
               </div>
-            </div>
+            </FadeInSection>
           </div>
         </section>
         
         {/* About Section */}
         <section id="about" className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
+            <FadeInSection className="text-center mb-16">
               <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
                 About Me
               </span>
               <h2 className="text-4xl font-bold text-gray-900">Who I Am</h2>
-            </div>
+            </FadeInSection>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {/* Personal Info Card */}
-              <div className="card hover:border-accent/20">
+              <FadeInSection className="card hover:border-accent/20" delay={100}>
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
                   <i className="fas fa-user text-2xl"></i>
                 </div>
@@ -209,10 +210,10 @@ export default function Home() {
                     <span>{profileData?.location || "Greece"}</span>
                   </li>
                 </ul>
-              </div>
+              </FadeInSection>
               
               {/* Skills Card */}
-              <div className="card hover:border-accent/20">
+              <FadeInSection className="card hover:border-accent/20" delay={200}>
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
                   <i className="fas fa-code text-2xl"></i>
                 </div>
@@ -246,10 +247,10 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </FadeInSection>
               
               {/* Education Card */}
-              <div className="card hover:border-accent/20">
+              <FadeInSection className="card hover:border-accent/20" delay={300}>
                 <div className="w-14 h-14 bg-accent-100 text-accent rounded-xl flex items-center justify-center mb-5">
                   <i className="fas fa-book-open text-2xl"></i>
                 </div>
@@ -271,11 +272,11 @@ export default function Home() {
                     <p className="text-sm text-gray-600 mt-1">Self-taught</p>
                   </div>
                 </div>
-              </div>
+              </FadeInSection>
             </div>
             
             {/* Bio Section */}
-            <div className="mt-16 card border-2 border-accent/20">
+            <FadeInSection className="mt-16 card border-2 border-accent/20" delay={400}>
               <h3 className="text-2xl font-bold mb-5 text-gray-900">My Story</h3>
               <p className="text-gray-700 leading-relaxed mb-5 text-lg">
                 {profileData?.bio || "I'm a 17-year-old developer passionate about creating innovative digital experiences. Despite my young age, I've already started building various projects, including web applications and an online casino platform."}
@@ -284,109 +285,115 @@ export default function Home() {
                 I'm constantly learning new technologies and improving my skills. My goal is to become a full-stack developer 
                 and create applications that make a positive impact on users' lives.
               </p>
-            </div>
+            </FadeInSection>
           </div>
         </section>
         
         {/* Projects Section */}
         <section id="projects" className="py-20 px-6 bg-gray-50">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
+            <FadeInSection className="text-center mb-16">
               <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
                 My Work
               </span>
               <h2 className="text-4xl font-bold text-gray-900">Recent Projects</h2>
-            </div>
+            </FadeInSection>
             
             {/* Featured Project */}
             {featuredProject && (
-              <div className="bg-white rounded-2xl overflow-hidden shadow-xl mb-16 border border-gray-100">
-                <div className="md:flex">
-                  <div className="md:w-1/2 relative">
-                    <img 
-                      src={featuredProject.imageUrl || "/ragebet.png"} 
-                      alt={featuredProject.title || "Rage Bet"} 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-medium">
-                      Featured
+              <FadeInSection className="mb-16" delay={100}>
+                <div className="bg-white rounded-2xl overflow-hidden shadow-xl border border-gray-100">
+                  <div className="md:flex">
+                    <div className="md:w-1/2 relative">
+                      <img 
+                        src={featuredProject.imageUrl || "/ragebet.png"} 
+                        alt={featuredProject.title || "Rage Bet"} 
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-4 left-4 bg-black/70 text-white px-4 py-2 rounded-lg text-sm font-medium">
+                        Featured
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-8 md:p-10 md:w-1/2">
-                    <div className="flex items-center mb-5">
-                      <span className="bg-accent text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md">
-                        Online Casino
-                      </span>
-                    </div>
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{featuredProject.title}</h3>
-                    <p className="text-gray-600 mb-6 text-lg">
-                      {featuredProject.description}
-                    </p>
-                    <div className="flex flex-wrap gap-3 mb-8">
-                      {featuredProject.tags?.map((tag, index) => {
-                        // Custom colors for each technology
-                        const colors = {
-                          "React": "bg-blue-50 text-blue-700 border-blue-200",
-                          "Tailwind CSS": "bg-teal-50 text-teal-700 border-teal-200",
-                          "PostgreSQL": "bg-indigo-50 text-indigo-700 border-indigo-200",
-                          "Stripe": "bg-purple-50 text-purple-700 border-purple-200",
-                          "Tailwind": "bg-teal-50 text-teal-700 border-teal-200"
-                        };
-                        
-                        const color = colors[tag as keyof typeof colors] || "bg-gray-100 text-gray-700 border-gray-200";
-                        
-                        // For debugging
-                        console.log(`Featured Project: ${featuredProject.title}, Tag: "${tag}"`, tag === "Tailwind CSS");
-                        
-                        // Helper function to determine if it's a Tailwind tag
-                        const isTailwindTag = tag === "Tailwind" || tag === "Tailwind CSS";
-                        
-                        return (
-                          <span key={index} className={`${color} text-sm font-medium px-4 py-2 rounded-full border flex items-center`}>
-                            {tag === "React" && <i className="fab fa-react mr-1.5"></i>}
-                            {isTailwindTag && <i className="fab fa-css3 mr-1.5"></i>}
-                            {tag === "PostgreSQL" && <i className="fas fa-database mr-1.5"></i>}
-                            {tag === "Stripe" && <i className="fas fa-credit-card mr-1.5"></i>}
-                            {tag}
-                          </span>
-                        );
-                      })}
-                    </div>
-                    <div className="flex flex-wrap gap-4">
-                      <a 
-                        href="https://ragebet.replit.app" 
-                        className="btn-primary flex items-center" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                      >
-                        <span>View Live</span>
-                        <i className="fas fa-external-link-alt ml-2"></i>
-                      </a>
-                      {featuredProject.githubUrl && (
+                    <div className="p-8 md:p-10 md:w-1/2">
+                      <div className="flex items-center mb-5">
+                        <span className="bg-accent text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-md">
+                          Online Casino
+                        </span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 text-gray-900">{featuredProject.title}</h3>
+                      <p className="text-gray-600 mb-6 text-lg">
+                        {featuredProject.description}
+                      </p>
+                      <div className="flex flex-wrap gap-3 mb-8">
+                        {featuredProject.tags?.map((tag, index) => {
+                          // Custom colors for each technology
+                          const colors = {
+                            "React": "bg-blue-50 text-blue-700 border-blue-200",
+                            "Tailwind CSS": "bg-teal-50 text-teal-700 border-teal-200",
+                            "PostgreSQL": "bg-indigo-50 text-indigo-700 border-indigo-200",
+                            "Stripe": "bg-purple-50 text-purple-700 border-purple-200",
+                            "Tailwind": "bg-teal-50 text-teal-700 border-teal-200"
+                          };
+                          
+                          const color = colors[tag as keyof typeof colors] || "bg-gray-100 text-gray-700 border-gray-200";
+                          
+                          // For debugging
+                          console.log(`Featured Project: ${featuredProject.title}, Tag: "${tag}"`, tag === "Tailwind CSS");
+                          
+                          // Helper function to determine if it's a Tailwind tag
+                          const isTailwindTag = tag === "Tailwind" || tag === "Tailwind CSS";
+                          
+                          return (
+                            <span key={index} className={`${color} text-sm font-medium px-4 py-2 rounded-full border flex items-center`}>
+                              {tag === "React" && <i className="fab fa-react mr-1.5"></i>}
+                              {isTailwindTag && <i className="fab fa-css3 mr-1.5"></i>}
+                              {tag === "PostgreSQL" && <i className="fas fa-database mr-1.5"></i>}
+                              {tag === "Stripe" && <i className="fas fa-credit-card mr-1.5"></i>}
+                              {tag}
+                            </span>
+                          );
+                        })}
+                      </div>
+                      <div className="flex flex-wrap gap-4">
                         <a 
-                          href={featuredProject.githubUrl} 
-                          className="btn-secondary flex items-center" 
+                          href="https://ragebet.replit.app" 
+                          className="btn-primary flex items-center" 
                           target="_blank" 
                           rel="noopener noreferrer"
                         >
-                          <span>Source Code</span>
-                          <i className="fab fa-github ml-2"></i>
+                          <span>View Live</span>
+                          <i className="fas fa-external-link-alt ml-2"></i>
                         </a>
-                      )}
-                      <StripePaymentButton 
-                        amount={25} 
-                        label="Fund Rage Bet Account" 
-                      />
+                        {featuredProject.githubUrl && (
+                          <a 
+                            href={featuredProject.githubUrl} 
+                            className="btn-secondary flex items-center" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                          >
+                            <span>Source Code</span>
+                            <i className="fab fa-github ml-2"></i>
+                          </a>
+                        )}
+                        <StripePaymentButton 
+                          amount={25} 
+                          label="Fund Rage Bet Account" 
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </FadeInSection>
             )}
             
             {/* Project Gallery */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projectsData?.filter(p => !p.featured).map((project) => (
-                <div key={project.id} className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group">
+              {projectsData?.filter(p => !p.featured).map((project, index) => (
+                <FadeInSection 
+                  key={project.id} 
+                  delay={200 + (index * 100)} 
+                  className="bg-white rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 group"
+                >
                   <div className="relative">
                     <img 
                       src={project.imageUrl || `https://via.placeholder.com/400x200?text=${encodeURIComponent(project.title)}`} 
@@ -423,7 +430,7 @@ export default function Home() {
                       {project.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
-                      {project.tags?.map((tag, index) => {
+                      {project.tags?.map((tag, tagIndex) => {
                         // Custom colors for each technology
                         const colors = {
                           "React": "bg-blue-50 text-blue-700 border-blue-200",
@@ -446,7 +453,7 @@ export default function Home() {
                         const isTailwindTag = tag === "Tailwind" || tag === "Tailwind CSS";
                         
                         return (
-                          <span key={index} className={`${color} text-xs font-medium px-2.5 py-1.5 rounded-full border flex items-center`}>
+                          <span key={tagIndex} className={`${color} text-xs font-medium px-2.5 py-1.5 rounded-full border flex items-center`}>
                             {tag === "React" && <i className="fab fa-react mr-1"></i>}
                             {isTailwindTag && <i className="fab fa-css3 mr-1"></i>}
                             {tag === "Firebase" && <i className="fas fa-fire mr-1"></i>}
@@ -461,7 +468,7 @@ export default function Home() {
                       })}
                     </div>
                   </div>
-                </div>
+                </FadeInSection>
               ))}
             </div>
           </div>
@@ -473,7 +480,7 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            <div className="text-center mb-16">
+            <FadeInSection className="text-center mb-16">
               <span className="inline-block bg-accent-100 text-accent px-4 py-2 rounded-full text-sm font-medium mb-3">
                 Contact
               </span>
@@ -481,10 +488,10 @@ export default function Home() {
               <p className="mt-4 text-gray-600 max-w-lg mx-auto">
                 Have a question or want to work together? Feel free to contact me!
               </p>
-            </div>
+            </FadeInSection>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="md:col-span-1">
+              <FadeInSection className="md:col-span-1" delay={100}>
                 <div className="bg-gray-50 rounded-xl p-8 shadow-md h-full">
                   <div className="space-y-8">
                     <div>
@@ -542,9 +549,9 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </FadeInSection>
               
-              <div className="md:col-span-2">
+              <FadeInSection className="md:col-span-2" delay={200}>
                 <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
                   <h3 className="text-xl font-bold mb-6 text-gray-900">Send Me a Message</h3>
                   <Form {...form}>
@@ -638,7 +645,7 @@ export default function Home() {
                     </div>
                   </Form>
                 </div>
-              </div>
+              </FadeInSection>
             </div>
           </div>
         </section>
