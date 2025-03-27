@@ -75,10 +75,28 @@ export default function Home() {
   
   const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
     try {
+      console.log("Form submitted with values:", values);
+      console.log("Form validation state:", form.formState.isValid);
+      
+      // Log any errors if they exist
+      if (Object.keys(form.formState.errors).length > 0) {
+        console.error("Form validation errors:", form.formState.errors);
+        
+        // Show error toast to notify user about validation issues
+        toast({
+          title: "Validation Error",
+          description: "Please check the form for errors and try again.",
+          variant: "destructive",
+        });
+        return;
+      }
+      
       const response = await apiRequest("POST", "/api/contact", values);
+      console.log("API response status:", response.status);
       
       if (response.ok) {
         const data = await response.json();
+        console.log("API response data:", data);
         
         if (data.emailSent) {
           toast({
@@ -95,6 +113,17 @@ export default function Home() {
         
         // Reset form
         form.reset();
+      } else {
+        // Handle non-OK response
+        console.error("Error response from server:", response.status);
+        const errorData = await response.json().catch(() => ({ message: "Unknown error" }));
+        console.error("Error details:", errorData);
+        
+        toast({
+          title: "Error",
+          description: errorData.message || "Failed to send your message. Please try again later.",
+          variant: "destructive",
+        });
       }
     } catch (error) {
       console.error("Failed to send message:", error);
@@ -513,7 +542,7 @@ export default function Home() {
               <div className="md:col-span-2">
                 <div className="bg-white rounded-xl p-8 shadow-md border border-gray-100">
                   <h3 className="text-xl font-bold mb-6 text-gray-900">Send Me a Message</h3>
-                  <Form {...form} onSubmit={form.handleSubmit(onSubmit)}>
+                  <Form {...form}>
                     <div className="space-y-6">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <FormField
@@ -590,6 +619,7 @@ export default function Home() {
                         type="submit" 
                         className="btn-primary w-full"
                         disabled={form.formState.isSubmitting}
+                        onClick={form.handleSubmit(onSubmit)}
                       >
                         {form.formState.isSubmitting ? (
                           <span className="flex items-center justify-center">
